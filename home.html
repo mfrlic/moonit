@@ -42,7 +42,9 @@
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-        <a class="getstarted" id="btn-cart" data-bs-toggle="modal" data-bs-target="#cart">Cart</a>
+        <div style="position:relative; padding: 0px; margin-left: 20px;">
+          <a id="btn-cart" data-bs-toggle="modal" data-bs-target="#cart"><i class="bx bx-cart"></i></a>
+        </div>
       </nav>
 
     </div>
@@ -74,14 +76,12 @@
         </div>
         <div class="modal-body">
           <div id="items_table">
+            <a class="cart-close" onclick="ClearAll()"><i class="bx bx-trash"></i></a>
             <table id="list"></table>
-            <label><input type="button" value="Clear" onclick="ClearAll()">
-            * Delete all items</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <a class="cart-checkout">Checkout</a>
         </div>
       </div>
     </div>
@@ -291,14 +291,14 @@
                     <div class="col-6 promo">
                       <h4>Retweets</h4>
                       100 ($10) <span id="100RT">+</span><br>
-                      500 ($40) <span>+</span><br>
-                      1000 ($70) <span>+</span>
+                      500 ($40) <span id="500RT">+</span><br>
+                      1000 ($70) <span id="1000RT">+</span>
                     </div>
                     <div class="col-6 promo">
                       <h4>Followers</h4>
-                      100 ($10) <span>+</span><br>
-                      500 ($40) <span>+</span><br>
-                      1000 ($70) <span>+</span>
+                      100 ($10) <span id="100FAV">+</span><br>
+                      500 ($40) <span id="500FAV">+</span><br>
+                      1000 ($70) <span id="1000FAV">+</span>
                     </div>
                   </div>
                 </div>
@@ -371,7 +371,7 @@
       <script>
         window.load=doShowAll();
 
-        $("#100RT").click(function() {
+$("#100RT").click(function() {
 	if (localStorage.getItem("100 Retweets") == null) {
 		SaveItem("100 Retweets", 1);
 	}
@@ -394,6 +394,61 @@ $("#1000RT").click(function() {
 	else {
 		ModifyItem("1000 Retweets", 1);
 	}
+})
+$("#RTclose100").click(function() {
+  if (localStorage.getItem("100 Retweets") != null) {
+    RemoveItem("100 Retweets");
+  }
+})
+$("#RTclose500").click(function() {
+  if (localStorage.getItem("500 Retweets") != null) {
+    RemoveItem("500 Retweets");
+  }
+})
+$("#RTclose1000").click(function() {
+  if (localStorage.getItem("1000 Retweets") != null) {
+    RemoveItem("1000 Retweets");
+  }
+})
+
+$("#100FAV").click(function() {
+	if (localStorage.getItem("100 Favorites") == null) {
+		SaveItem("100 Favorites", 1);
+	}
+	else {
+		ModifyItem("100 Favorites", 1);
+	}
+})
+$("#500FAV").click(function() {
+	if (localStorage.getItem("500 Favorites") == null) {
+		SaveItem("500 Favorites", 1);
+	}
+	else {
+		ModifyItem("500 Favorites", 1);
+	}
+})
+$("#1000FAV").click(function() {
+	if (localStorage.getItem("1000 Favorites") == null) {
+		SaveItem("1000 Favorites", 1);
+	}
+	else {
+		ModifyItem("1000 Favorites", 1);
+	}
+})
+$("#FAVclose100").click(function() {
+  if (localStorage.getItem("100 Favorites") != null) {
+    RemoveItem("100 Favorites");
+  }
+})
+$("#FAVclose500").click(function() {
+  if (localStorage.getItem("500 Retweets") != null) {
+    RemoveItem("500 Retweets");
+  }
+})
+$("#FAVclose1000").click(function() {
+  if (localStorage.getItem("1000 Retweets") != null) {
+    RemoveItem("1000 Retweets");
+  }
 })
 //------------------------------------------------------------------------------
 //add new key=>value to the HTML5 storage
@@ -425,30 +480,39 @@ function ClearAll() {
 function doShowAll() {
 	if (CheckBrowser()) {
 		var key = "";
+    var key_close = "";
 		var list = "<tr><th>Item</th><th>Value</th><th></th></tr>\n";
     var total = 0;
 		var i = 0;
 		//for more advance feature, you can set cap on max items in the cart
 		for (i = 0; i <= localStorage.length-1; i++) {
 			key = localStorage.key(i);
+      if(key == "100 Retweets") key_close = "RTclose100";
+      else if(key == "500 Retweets") key_close = "RTclose500";
+      else if(key == "1000 Retweets") key_close = "RTclose1000";
+      else if(key == "100 Favorites") key_close = "FAVclose100";
+      else if(key == "500 Favorites") key_close = "FAVclose500";
+      else if(key == "1000 Favorites") key_close = "FAVclose1000";
+      else key_close = "blj";
+
 			list += "<tr><td>" + key + "</td>\n<td>"
-				+ localStorage.getItem(key) + '</td><td><span onclick=RemoveItem("' + key + '")>X</span></td></tr>\n';
+				+ localStorage.getItem(key) + '</td><td><span class="cart-close-single" id="' + key_close + '"><i class="bx bx-x"></i></span></td></tr>\n';
       total += parseInt(localStorage.getItem(key));
 		}
 		list += ""
 	  	//if no item exists in the cart
 		if (list == "<tr><th>Item</th><th>Value</th><th></th></tr>\n") {
-			list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
+			list = "<i>Your cart is empty.</i>";
 		}
 		//bind the data to html table
 
 		$("#list").html(list)
 
     if(total == 0) {
-      $("#btn-cart").text("Cart")
+      $("#btn-cart").html("<i class='bx bx-cart'></i>")
     }
     else {
-      $("#btn-cart").text("Cart " + total)
+      $("#btn-cart").html("<i class='bx bx-cart'></i> <span class='cart-quantity'>" + total + "</span>")
     }
 	}
 	else {
