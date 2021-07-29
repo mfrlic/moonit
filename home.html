@@ -395,19 +395,37 @@ $("#1000RT").click(function() {
 		ModifyItem("1000 Retweets", 1);
 	}
 })
-$("#RTclose100").click(function() {
-  if (localStorage.getItem("100 Retweets") != null) {
-    RemoveItem("100 Retweets");
+$(document).on("click", "#RTclose100", function() {
+  RemoveItem("100 Retweets")
+})
+$(document).on("click", "#RTclose500", function() {
+  RemoveItem("500 Retweets")
+})
+$(document).on("click", "#RTclose1000", function() {
+  RemoveItem("1000 Retweets")
+})
+$(document).on("change", "#RTinput100", function() {
+  if(parseInt($("#RTinput100").val()) < 100) {
+    ModifyItem("100 Retweets", parseInt($("#RTinput100").val()) - localStorage.getItem("100 Retweets"))
+  }
+  else {
+    SaveItem("100 Retweets", 1)
   }
 })
-$("#RTclose500").click(function() {
-  if (localStorage.getItem("500 Retweets") != null) {
-    RemoveItem("500 Retweets");
+$(document).on("change", "#RTinput500", function() {
+  if(parseInt($("#RTinput500").val()) < 100) {
+    ModifyItem("500 Retweets", parseInt($("#RTinput500").val()) - localStorage.getItem("500 Retweets"))
+  }
+  else {
+    SaveItem("500 Retweets", 1)
   }
 })
-$("#RTclose1000").click(function() {
-  if (localStorage.getItem("1000 Retweets") != null) {
-    RemoveItem("1000 Retweets");
+$(document).on("change", "#RTinput1000", function() {
+  if(parseInt($("#RTinput1000").val()) < 100) {
+    ModifyItem("1000 Retweets", parseInt($("#RTinput1000").val()) - localStorage.getItem("1000 Retweets"))
+  }
+  else {
+    SaveItem("1000 Retweets", 1)
   }
 })
 
@@ -435,19 +453,37 @@ $("#1000FAV").click(function() {
 		ModifyItem("1000 Favorites", 1);
 	}
 })
-$("#FAVclose100").click(function() {
-  if (localStorage.getItem("100 Favorites") != null) {
+$(document).on("click", "#FAVclose100", function() {
     RemoveItem("100 Favorites");
+});
+$(document).on("click", "#FAVclose500", function() {
+    RemoveItem("500 Favorites");
+});
+$(document).on("click", "#FAVclose1000", function() {
+    RemoveItem("1000 Favorites");
+});
+$(document).on("change", "#FAVinput100", function() {
+  if(parseInt($("#FAVinput100").val()) < 100) {
+    ModifyItem("100 Favorites", parseInt($("#FAVinput100").val()) - localStorage.getItem("100 Favorites"))
+  }
+  else {
+    SaveItem("100 Favorites", 1)
   }
 })
-$("#FAVclose500").click(function() {
-  if (localStorage.getItem("500 Retweets") != null) {
-    RemoveItem("500 Retweets");
+$(document).on("change", "#FAVinput500", function() {
+  if(parseInt($("#FAVinput500").val()) < 100) {
+    ModifyItem("500 Favorites", parseInt($("#FAVinput500").val()) - localStorage.getItem("500 Favorites"))
+  }
+  else {
+    SaveItem("500 Favorites", 1)
   }
 })
-$("#FAVclose1000").click(function() {
-  if (localStorage.getItem("1000 Retweets") != null) {
-    RemoveItem("1000 Retweets");
+$(document).on("change", "#FAVinput1000", function() {
+  if(parseInt($("#FAVinput1000").val()) < 100) {
+    ModifyItem("1000 Favorites", parseInt($("#FAVinput1000").val()) - localStorage.getItem("1000 Favorites"))
+  }
+  else {
+    SaveItem("1000 Favorites", 1)
   }
 })
 //------------------------------------------------------------------------------
@@ -481,22 +517,41 @@ function doShowAll() {
 	if (CheckBrowser()) {
 		var key = "";
     var key_close = "";
+    var key_input = "";
 		var list = "<tr><th>Item</th><th>Value</th><th></th></tr>\n";
     var total = 0;
 		var i = 0;
 		//for more advance feature, you can set cap on max items in the cart
 		for (i = 0; i <= localStorage.length-1; i++) {
 			key = localStorage.key(i);
-      if(key == "100 Retweets") key_close = "RTclose100";
-      else if(key == "500 Retweets") key_close = "RTclose500";
-      else if(key == "1000 Retweets") key_close = "RTclose1000";
-      else if(key == "100 Favorites") key_close = "FAVclose100";
-      else if(key == "500 Favorites") key_close = "FAVclose500";
-      else if(key == "1000 Favorites") key_close = "FAVclose1000";
+      if(key == "100 Retweets") {
+        key_close = "RTclose100";
+        key_input = "RTinput100"
+      }
+      else if(key == "500 Retweets") {
+        key_close = "RTclose500";
+        key_input = "RTinput500"
+      }
+      else if(key == "1000 Retweets") {
+        key_close = "RTclose1000";
+        key_input = "RTinput1000"
+      }
+      else if(key == "100 Favorites") {
+        key_close = "FAVclose100";
+        key_input = "FAVinput100"
+      }
+      else if(key == "500 Favorites") {
+        key_close = "FAVclose500";
+        key_input = "FAVinput500"
+      }
+      else if(key == "1000 Favorites") {
+        key_close = "FAVclose1000";
+        key_input = "FAVinput1000"
+      }
       else key_close = "blj";
 
-			list += "<tr><td>" + key + "</td>\n<td>"
-				+ localStorage.getItem(key) + '</td><td><span class="cart-close-single" id="' + key_close + '"><i class="bx bx-x"></i></span></td></tr>\n';
+			list += "<tr><td>" + key + "</td>\n<td> <input type='number' id='" + key_input + "' value='" + localStorage.getItem(key) + "' min='1' max='99'>"
+				+ '</td><td><span class="cart-close-single" id="' + key_close + '"><i class="bx bx-x"></i></span></td></tr>\n';
       total += parseInt(localStorage.getItem(key));
 		}
 		list += ""
