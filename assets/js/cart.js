@@ -1,120 +1,211 @@
 window.load=doShowAll();
 
-$("#100RT").click(function() {
-    if (localStorage.getItem("100 Retweets") == null) {
-        SaveItem("100 Retweets", 1);
+$("#price1-1").on("keyup", function() {
+    if($("#price1-1").val() == "") {
+        $("#calc1-1").text("")
+    }
+    else if(BigNumber($("#price1-1").val()).lte(10000)){
+        $("#calc1-1").html("+<span id='total1-1'>" + $("#price1-1").val() + "</span> USD")
     }
     else {
-        ModifyItem("100 Retweets", 1);
+        $("#price1-1").val(10000)
+        $("#calc1-1").html("+<span id='total1-1'>" + $("#price1-1").val() + "</span> USD")
     }
-})
-$("#500RT").click(function() {
-    if (localStorage.getItem("500 Retweets") == null) {
-        SaveItem("500 Retweets", 1);
-    }
-    else {
-        ModifyItem("500 Retweets", 1);
-    }
-})
-$("#1000RT").click(function() {
-    if (localStorage.getItem("1000 Retweets") == null) {
-        SaveItem("1000 Retweets", 1);
-    }
-    else {
-        ModifyItem("1000 Retweets", 1);
-    }
-})
-$(document).on("click", "#RTclose100", function() {
-    RemoveItem("100 Retweets")
-})
-$(document).on("click", "#RTclose500", function() {
-    RemoveItem("500 Retweets")
-})
-$(document).on("click", "#RTclose1000", function() {
-    RemoveItem("1000 Retweets")
-})
-$(document).on("change", "#RTinput100", function() {
-    if(parseInt($("#RTinput100").val()) < 100) {
-        ModifyItem("100 Retweets", parseInt($("#RTinput100").val()) - localStorage.getItem("100 Retweets"))
-    }
-    else {
-        SaveItem("100 Retweets", 1)
-    }
-})
-$(document).on("change", "#RTinput500", function() {
-    if(parseInt($("#RTinput500").val()) < 100) {
-        ModifyItem("500 Retweets", parseInt($("#RTinput500").val()) - localStorage.getItem("500 Retweets"))
-    }
-    else {
-        SaveItem("500 Retweets", 1)
-    }
-})
-$(document).on("change", "#RTinput1000", function() {
-    if(parseInt($("#RTinput1000").val()) < 100) {
-        ModifyItem("1000 Retweets", parseInt($("#RTinput1000").val()) - localStorage.getItem("1000 Retweets"))
-    }
-    else {
-        SaveItem("1000 Retweets", 1)
-    }
+    $("#totalSum").text("Total: " + checkTotal() + " USD")
 })
 
-$("#100FAV").click(function() {
-    if (localStorage.getItem("100 Favorites") == null) {
-        SaveItem("100 Favorites", 1);
+$("#y1").click(function() {
+    if(!$("#y1").hasClass("active")) {
+        $("#y1-radio").prop("checked", true)
+
+        $("#y1").addClass("active")
+        $("#n1").removeClass("active")
+
+        if($("#price1-4").val() == "") {
+            $("#calc1-2").text("+2 USD/hour")
+        }
+        else if($("#h1-radio").is(":checked")){
+            $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+        }
+        else if($("#d1-radio").is(":checked")){
+            $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+        }
+    }
+    $("#totalSum").text("Total: " + checkTotal() + " USD")
+})
+
+$("#n1").click(function() {
+    if(!$("#n1").hasClass("active")) {
+        $("#n1-radio").prop("checked", true)
+
+        $("#n1").addClass("active")
+        $("#y1").removeClass("active")
+
+        $("#calc1-2").text("")
+    }
+    $("#totalSum").text("Total: " + checkTotal() + " USD")
+})
+
+$("#h1").click(function() {
+    if(!$("#h1").hasClass("active")) {
+        $("#h1-radio").prop("checked", true)
+
+        $("#h1").addClass("active")
+        $("#d1").removeClass("active")
+
+        if($("#price1-4").val() == "") {
+            $("#calc1-4").text("")
+        }
+        else if(BigNumber($("#price1-4").val()).lte(72)){
+            if($("#h1-radio").is(":checked")){
+                $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                if($("#y1-radio").is(":checked")){
+                    $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                }
+            }
+            else if($("#d1-radio").is(":checked")){
+                $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                if($("#y1-radio").is(":checked")){
+                    $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                }
+            }
+        }
+        else {
+            $("#price1-4").val(72)
+            if($("#h1-radio").is(":checked")){
+                $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                if($("#y1-radio").is(":checked")){
+                    $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                }
+            }
+            else if($("#d1-radio").is(":checked")){
+                $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                if($("#y1-radio").is(":checked")){
+                    $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                }
+            }
+        }
+    }
+    $("#totalSum").text("Total: " + checkTotal() + " USD")
+})
+$("#d1").click(function() {
+    if(!$("#d1").hasClass("active")) {
+        $("#d1-radio").prop("checked", true)
+
+        $("#d1").addClass("active")
+        $("#h1").removeClass("active")
+
+        if($("#price1-4").val() == "") {
+            $("#calc1-4").text("")
+        }
+        else if(BigNumber($("#price1-4").val()).lte(72)){
+            if($("#h1-radio").is(":checked")){
+                $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                if($("#y1-radio").is(":checked")){
+                    $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                }
+            }
+            else if($("#d1-radio").is(":checked")){
+                $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                if($("#y1-radio").is(":checked")){
+                    $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                }
+            }
+        }
+        else {
+            $("#price1-4").val(72)
+            if($("#h1-radio").is(":checked")){
+                $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                if($("#y1-radio").is(":checked")){
+                    $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                }
+            }
+            else if($("#d1-radio").is(":checked")){
+                $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                if($("#y1-radio").is(":checked")){
+                    $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                }
+            }
+        }
+    }
+    $("#totalSum").text("Total: " + checkTotal() + " USD")
+})
+
+$("#price1-3").on("keyup", function() {
+    if($("#price1-3").val() == "") {
+        $("#calc1-3").text("")
+    }
+    else if(BigNumber($("#price1-3").val()).lte(10)){
+        if(BigNumber($("#price1-3").val()).lte(4)) {
+            $("#calc1-3").html("+<span id='total1-3'>" + BigNumber($("#price1-3").val()).times(4) + "</span> USD")
+        }
+        else {
+            $("#calc1-3").html("+<span id='total1-3'>" + BigNumber($("#price1-3").val()).times(6) + "</span> USD")
+        }
     }
     else {
-        ModifyItem("100 Favorites", 1);
+        $("#price1-3").val(10)
+        $("#calc1-3").html("+<span id='total1-3'>60</span> USD")
     }
+    $("#totalSum").text("Total: " + checkTotal() + " USD")
 })
-$("#500FAV").click(function() {
-    if (localStorage.getItem("500 Favorites") == null) {
-        SaveItem("500 Favorites", 1);
+
+$("#price1-4").on("keyup", function() {
+    if($("#price1-4").val() == "") {
+        $("#calc1-4").text("")
+    }
+    else if(BigNumber($("#price1-4").val()).lte(72)){
+        if($("#h1-radio").is(":checked")){
+            $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+            if($("#y1-radio").is(":checked")){
+                $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+            }
+        }
+        else if($("#d1-radio").is(":checked")){
+            $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+            if($("#y1-radio").is(":checked")){
+                $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+            }
+        }
     }
     else {
-        ModifyItem("500 Favorites", 1);
+        $("#price1-4").val(72)
+        if($("#h1-radio").is(":checked")){
+            $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+            if($("#y1-radio").is(":checked")){
+                $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+            }
+        }
+        else if($("#d1-radio").is(":checked")){
+            $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+            if($("#y1-radio").is(":checked")){
+                $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+            }
+        }
     }
+    $("#totalSum").text("Total: " + checkTotal() + " USD")
 })
-$("#1000FAV").click(function() {
-    if (localStorage.getItem("1000 Favorites") == null) {
-        SaveItem("1000 Favorites", 1);
+
+function checkTotal(){
+    var sum = 0
+    if($("#total1-1").length != 0) {
+        sum = BigNumber(sum).plus($("#total1-1").text())
     }
-    else {
-        ModifyItem("1000 Favorites", 1);
+    if($("#total1-2").length != 0) {
+        sum = BigNumber(sum).plus($("#total1-2").text())
     }
-})
-$(document).on("click", "#FAVclose100", function() {
-    RemoveItem("100 Favorites");
-});
-$(document).on("click", "#FAVclose500", function() {
-    RemoveItem("500 Favorites");
-});
-$(document).on("click", "#FAVclose1000", function() {
-    RemoveItem("1000 Favorites");
-});
-$(document).on("change", "#FAVinput100", function() {
-    if(parseInt($("#FAVinput100").val()) < 100) {
-        ModifyItem("100 Favorites", parseInt($("#FAVinput100").val()) - localStorage.getItem("100 Favorites"))
+    if($("#total1-3").length != 0) {
+        sum = BigNumber(sum).plus($("#total1-3").text())
     }
-    else {
-        SaveItem("100 Favorites", 1)
+    if($("#total1-4").length != 0) {
+        sum = BigNumber(sum).plus($("#total1-4").text())
     }
-})
-$(document).on("change", "#FAVinput500", function() {
-    if(parseInt($("#FAVinput500").val()) < 100) {
-        ModifyItem("500 Favorites", parseInt($("#FAVinput500").val()) - localStorage.getItem("500 Favorites"))
-    }
-    else {
-        SaveItem("500 Favorites", 1)
-    }
-})
-$(document).on("change", "#FAVinput1000", function() {
-    if(parseInt($("#FAVinput1000").val()) < 100) {
-        ModifyItem("1000 Favorites", parseInt($("#FAVinput1000").val()) - localStorage.getItem("1000 Favorites"))
-    }
-    else {
-        SaveItem("1000 Favorites", 1)
-    }
-})
+    return sum
+}
+
+
+//add hidden radio buttons
+
 //------------------------------------------------------------------------------
 //add new key=>value to the HTML5 storage
 function SaveItem(type, quantity) {
