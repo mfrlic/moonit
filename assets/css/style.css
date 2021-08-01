@@ -582,6 +582,7 @@ section {
   text-align: center;
   padding: 30px 50px;
   border-radius: 25px;
+  transition: 0.3s;
 }
 
 .pricing .option:hover {
@@ -589,7 +590,44 @@ section {
 }
 
 
-.contact .form {
+.contact .opt-box {
+  text-align: center;
+}
+
+.contact .opt {
+  padding: 20px;
+  width: 300px;
+  border: none;
+  font-size: 18px;
+  background: var(--secondary);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.contact .opt:hover {
+  background: var(--secondary-dark);
+}
+
+.contact .opt.active {
+  background: var(--button);
+  color: var(--button-text);
+}
+
+.contact .opt.active:hover {
+  background: var(--button-hover);
+}
+
+.contact .opt-left {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.contact .opt-right {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.contact .form-container {
   background-image: linear-gradient(to bottom right, var(--primary-light), var(--secondary-dark));
   border-radius: 20px;
   box-sizing: border-box;
@@ -674,6 +712,33 @@ section {
 
 .contact .input:focus ~ .placeholder {
   color: var(--text-hover);
+}
+
+.contact .pos-container {
+  text-align: center;
+}
+
+.contact .pos-app {
+  background: var(--secondary);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 22px;
+  border: none;
+  transition: 0.3s;
+}
+
+.contact .pos-app:hover {
+  background: var(--secondary-dark);
+}
+
+.contact .pos-app.active {
+  background: var(--button);
+  color: var(--button-text);
+}
+
+.contact .pos-app.active:hover {
+  background: var(--button-hover);
 }
 
 .contact .submit-container {

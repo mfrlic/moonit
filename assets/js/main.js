@@ -177,3 +177,77 @@
   });
 
 })()
+
+$("#btn-p").click(function() {
+  if($("#form-p").hasClass("d-none") && !$("#form-q").hasClass("d-none")) {
+    $("#form-p").removeClass("d-none");
+    $("#form-q").addClass("d-none");
+
+    $("#btn-p").addClass("active");
+    $("#btn-q").removeClass("active");
+  }
+})
+
+$("#btn-q").click(function() {
+  if($("#form-q").hasClass("d-none") && !$("#form-p").hasClass("d-none")) {
+    $("#form-q").removeClass("d-none");
+    $("#form-p").addClass("d-none");
+
+    $("#btn-q").addClass("active");
+    $("#btn-p").removeClass("active");
+  }
+})
+
+$("#opt1").click(function() {
+  if($("#opt1").hasClass("active")) {
+    $("#opt1").removeClass("active")
+  }
+  else {
+    $("#opt1").addClass("active")
+  }
+})
+
+$("#opt2").click(function() {
+  if($("#opt2").hasClass("active")) {
+    $("#opt2").removeClass("active")
+  }
+  else {
+    $("#opt2").addClass("active")
+  }
+})
+
+$("#opt3").click(function() {
+  if($("#opt3").hasClass("active")) {
+    $("#opt3").removeClass("active")
+  }
+  else {
+    $("#opt3").addClass("active")
+  }
+})
+
+$("#opt4").click(function() {
+  if($("#opt4").hasClass("active")) {
+    $("#opt4").removeClass("active")
+  }
+  else {
+    $("#opt4").addClass("active")
+  }
+})
+
+$("#opt5").click(function() {
+  if($("#opt5").hasClass("active")) {
+    $("#opt5").removeClass("active")
+  }
+  else {
+    $("#opt5").addClass("active")
+  }
+})
+
+$("#opt6").click(function() {
+  if($("#opt6").hasClass("active")) {
+    $("#opt6").removeClass("active")
+  }
+  else {
+    $("#opt6").addClass("active")
+  }
+})
