@@ -544,7 +544,7 @@ section {
 
 .pricing .promo {
   text-align: center;
-  background: var(--secondary);
+  background-image: linear-gradient(to bottom right, var(--primary-light), var(--secondary-dark));
   border-radius: 25px;
 }
 
@@ -676,6 +676,10 @@ section {
   color: var(--text-hover);
 }
 
+.contact .submit-container {
+  text-align: center;
+}
+
 .contact .submit {
   background-color: var(--button);
   border-radius: 12px;
@@ -688,7 +692,7 @@ section {
   margin-top: 38px;
   outline: 0;
   text-align: center;
-  width: 100%;
+  width: 50%;
   transition: 0.3s;
 }
 
