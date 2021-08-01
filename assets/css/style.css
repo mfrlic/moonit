@@ -36,7 +36,10 @@
 
 :root {
   --primary: #03060d;
+  --primary-light: #091225;
   --secondary: #0d3058; 
+  --secondary-dark: #082647; 
+  --transparent: rgba(255, 255, 255, 0.08);
   --text: #fff;
   --text-hover: #cac9c9;
   --subtext: rgb(201, 201, 201);
@@ -382,7 +385,7 @@ section {
   padding: 50px 30px;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(to bottom right, var(--primary), #082342);
+  background-image: linear-gradient(to bottom right, var(--primary-light), var(--secondary-dark));
   box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
@@ -574,7 +577,7 @@ section {
   width: 100%;
   font-size: 22px;
   font-weight: 600;
-  background-image: linear-gradient(to bottom right, #091124, var(--secondary));
+  background-image: linear-gradient(to bottom right, var(--primary-light), var(--secondary-dark));
   color: var(--text);
   text-align: center;
   padding: 30px 50px;
@@ -583,6 +586,114 @@ section {
 
 .pricing .option:hover {
   color: var(--text-hover);
+}
+
+
+.contact .form {
+  background-image: linear-gradient(to bottom right, var(--primary-light), var(--secondary-dark));
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.contact .input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.contact .textarea-container {
+  position: relative;
+  height: 85%;
+  width: 100%;
+}
+
+.contact .ic1 {
+  margin-top: 40px;
+}
+
+.contact .ic2 {
+  margin-top: 30px;
+}
+
+.contact .input {
+  background-color: var(--transparent);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.contact .cut {
+  background-color: transparent;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+
+.contact .cut-short {
+  width: 50px;
+}
+
+.contact .input:focus ~ .cut,
+.contact .input:not(:placeholder-shown) ~ .cut {
+  background-color: #15172b;
+  transform: translateY(8px);
+}
+
+.contact .placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.contact .input:focus ~ .placeholder,
+.contact .input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.contact .input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.contact .input:focus ~ .placeholder {
+  color: var(--text-hover);
+}
+
+.contact .submit {
+  background-color: var(--button);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: var(--button-text);
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  outline: 0;
+  text-align: center;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.contact .submit:hover {
+  background-color: var(--button-hover);
 }
 
 
