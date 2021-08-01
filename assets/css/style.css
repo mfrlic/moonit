@@ -431,7 +431,7 @@ section {
   background-color: rgb(70, 106, 184);
 }
 
-#btn-cart.cart-quantity {
+#btn-cart .cart-quantity {
   position: absolute;
   bottom: -2px;
   left: -3px;
