@@ -201,53 +201,104 @@ $("#btn-q").click(function() {
 $("#opt1").click(function() {
   if($("#opt1").hasClass("active")) {
     $("#opt1").removeClass("active")
+    $("#checkbox1").prop("checked", false)
   }
   else {
     $("#opt1").addClass("active")
+    $("#checkbox1").prop("checked", true)
   }
 })
 
 $("#opt2").click(function() {
   if($("#opt2").hasClass("active")) {
     $("#opt2").removeClass("active")
+    $("#checkbox2").prop("checked", false)
   }
   else {
     $("#opt2").addClass("active")
+    $("#checkbox2").prop("checked", true)
   }
 })
 
 $("#opt3").click(function() {
   if($("#opt3").hasClass("active")) {
     $("#opt3").removeClass("active")
+    $("#checkbox3").prop("checked", false)
   }
   else {
     $("#opt3").addClass("active")
+    $("#checkbox3").prop("checked", true)
   }
 })
 
 $("#opt4").click(function() {
   if($("#opt4").hasClass("active")) {
     $("#opt4").removeClass("active")
+    $("#checkbox4").prop("checked", false)
   }
   else {
     $("#opt4").addClass("active")
+    $("#checkbox4").prop("checked", true)
   }
 })
 
 $("#opt5").click(function() {
   if($("#opt5").hasClass("active")) {
     $("#opt5").removeClass("active")
+    $("#checkbox5").prop("checked", false)
   }
   else {
     $("#opt5").addClass("active")
+    $("#checkbox5").prop("checked", true)
   }
 })
 
 $("#opt6").click(function() {
   if($("#opt6").hasClass("active")) {
     $("#opt6").removeClass("active")
+    $("#checkbox6").prop("checked", false)
   }
   else {
     $("#opt6").addClass("active")
+    $("#checkbox6").prop("checked", true)
+  }
+})
+
+$("#contact1").click(function() {
+  if(!$("#contact1").hasClass("active")) {
+    $("#contact-input").attr("placeholder", "Email")
+    $("#contact1").addClass("active")
+    if($("#contact2").hasClass("active")) {
+      $("#contact2").removeClass("active")
+    }
+    if($("#contact3").hasClass("active")) {
+      $("#contact3").removeClass("active")
+    }
+  }
+})
+
+$("#contact2").click(function() {
+  if(!$("#contact2").hasClass("active")) {
+    $("#contact-input").attr("placeholder", "Telegram @")
+    $("#contact2").addClass("active")
+    if($("#contact1").hasClass("active")) {
+      $("#contact1").removeClass("active")
+    }
+    if($("#contact3").hasClass("active")) {
+      $("#contact3").removeClass("active")
+    }
+  }
+})
+
+$("#contact3").click(function() {
+  if(!$("#contact3").hasClass("active")) {
+    $("#contact-input").attr("placeholder", "Twitter @")
+    $("#contact3").addClass("active")
+    if($("#contact1").hasClass("active")) {
+      $("#contact1").removeClass("active")
+    }
+    if($("#contact2").hasClass("active")) {
+      $("#contact2").removeClass("active")
+    }
   }
 })

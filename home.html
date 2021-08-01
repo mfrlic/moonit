@@ -75,9 +75,16 @@
             <a class="cart-close" onclick="ClearAll()"><i class="bx bx-trash"></i></a>
             <table id="list"></table>
           </div>
+          <div>
+            Where can we contact you?<br>
+            <button id="contact1" class="btn-contact active"><i class="bx bx-mail-send"></i></button>
+            <button id="contact2" class="btn-contact"><i class="bx bxl-telegram"></i></button>
+            <button id="contact3" class="btn-contact"><i class="bx bxl-twitter"></i></button>
+            <input id="contact-input" type="text" placeholder="Email">
+          </div>
         </div>
         <div class="modal-footer">
-          <a class="cart-checkout">Checkout</a>
+          <a class="cart-checkout" data-bs-toggle="modal" data-bs-target="#checkout">Send offer</a>
         </div>
       </div>
     </div>
@@ -278,6 +285,12 @@
                 <button id="opt4" class="pos-app"><i class="bx bxl-telegram"></i></button>
                 <button id="opt5" class="pos-app"><i class="bx bxl-tiktok"></i></button>
                 <button id="opt6" class="pos-app"><i class="bx bxl-youtube"></i></button>
+                <input id="checkbox1" class="d-none" type="checkbox" value="Twitter">
+                <input id="checkbox2" class="d-none" type="checkbox" value="Reddit">
+                <input id="checkbox3" class="d-none" type="checkbox" value="4chan">
+                <input id="checkbox4" class="d-none" type="checkbox" value="Telegram">
+                <input id="checkbox5" class="d-none" type="checkbox" value="TikTok">
+                <input id="checkbox6" class="d-none" type="checkbox" value="Youtube">
               </div>
             </div>
             <div class="col-lg-6">
@@ -288,7 +301,7 @@
               </div>
             </div>
             <div class="submit-container">
-              <button type="text" class="submit">submit</button>
+              <button type="text" class="submit">Submit</button>
             </div>
           </div>
           <div id="form-q" class="form row d-none">
@@ -307,7 +320,7 @@
               </div>
             </div>
             <div class="submit-container">
-              <button type="text" class="submit">submit</button>
+              <button type="text" class="submit">Submit</button>
             </div>
           </div>
         </div>

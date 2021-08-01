@@ -541,6 +541,41 @@ section {
   background: rgba(54, 148, 0, 0.9);
 }
 
+#cart .btn-contact {
+  background: var(--secondary);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 22px;
+  border: none;
+  transition: 0.3s;
+}
+
+#cart .btn-contact:hover {
+  background: var(--secondary-dark);
+}
+
+#cart .btn-contact.active {
+  background: var(--button);
+  color: var(--button-text);
+}
+
+#cart .btn-contact.active:hover {
+  background: var(--button-hover);
+}
+
+#cart input {
+  background-color: var(--transparent);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: var(--text);
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 8px 20px;
+}
+
 
 .pricing .promo {
   text-align: center;
@@ -659,7 +694,7 @@ section {
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
-  color: #eee;
+  color: var(--text);
   font-size: 18px;
   height: 100%;
   outline: 0;
