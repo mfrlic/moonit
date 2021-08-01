@@ -453,8 +453,8 @@ section {
 
 
 #btn-cart {
-  background-color: rgba(70, 106, 184, 0.575);
-  color: #fff;
+  background-color: var(--button);
+  color: var(--button-text);
   padding: 18px 6px 18px 0px;
   border-radius: 50%;
   cursor: pointer;
@@ -466,7 +466,7 @@ section {
 }
 
 #btn-cart:hover {
-  background-color: rgb(70, 106, 184);
+  background-color: var(--button-hover);
 }
 
 #btn-cart .cart-quantity {
