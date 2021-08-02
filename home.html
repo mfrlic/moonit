@@ -163,37 +163,66 @@
 
         <div class="row">
           <a class="option" data-bs-toggle="collapse" href="#twitter" role="button" aria-expanded="false" aria-controls="twitter">Twitter</a>
-          <div class="col-12">
-            <div class="collapse multi-collapse" id="twitter">
-              <div class="card card-body container">
-                <div class="row">
-                  <div class="col-lg-6 promo">
+          <div class="collapse multi-collapse" id="twitter">
+            <div class="card card-body container">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="promo">
                     <h4>Giveaway</h4>
                     <span class="subtitle">We host a giveaway on your terms!</span>
                     <div class="details">
-                      Giveaway amount: <input id="price1-1" type="number" min=10 max=10000> USD <span id="calc1-1"></span><br>
+                      <div class="details-row">
+                        Giveaway amount: <input id="price1-1" type="number" min=10 max=10000> USD <span id="calc1-1"></span>
+                      </div>
 
-                      Pin the tweet?<button id="y1" class="price-radio">Yes</button><button id="n1" class="price-radio active">No</button> <span id="calc1-2"></span><br>
-                      <input id="y1-radio" class="d-none" name="radio1-1" type="radio">
-                      <input checked id="n1-radio" class="d-none" name="radio1-1" type="radio">
+                      <div class="details-row">
+                        Pin the tweet?<button id="y1" class="price-radio">Yes</button><button id="n1" class="price-radio active">No</button> <span id="calc1-2"></span>
+                        <input id="y1-radio" class="d-none" name="radio1-1" type="radio">
+                        <input checked id="n1-radio" class="d-none" name="radio1-1" type="radio">
+                      </div>
 
-                      Number of user interactions (RT, join TG, follow): <input id="price1-3" type="number" min=1 max=10> <span id="calc1-3"></span><br>
+                      <div class="details-row">
+                        Number of interactions required: <input id="price1-3" type="number" min=1 max=10> <span id="calc1-3"></span>
+                      </div>
 
-                      Giveaway duration: <input id="price1-4" type="number" min=1 max=72> <button id="h1" class="price-radio active">Hours</button><button id="d1" class="price-radio">Days</button> <span id="calc1-4"></span><br>
-                      <input checked id="h1-radio" class="d-none" name="radio1-2" type="radio">
-                      <input id="d1-radio" class="d-none" name="radio1-2" type="radio">
+                      <div class="details-row">
+                        Giveaway duration: <input id="price1-4" type="number" min=1 max=72> <button id="h1" class="price-radio active">Hours</button><button id="d1" class="price-radio">Days</button> <span id="calc1-4"></span>
+                        <input checked id="h1-radio" class="d-none" name="radio1-2" type="radio">
+                        <input id="d1-radio" class="d-none" name="radio1-2" type="radio">
+                      </div>
 
-                      <span id="totalSum"></span><br>
-                      <span class="cart-add">Add to cart</span>
+                      <div class="details-row">
+                        <span id="total-sum">Total: 0 USD</span>
+                      </div>
+
+                      <br>
+
+                      <div class="details-row text-center">
+                        <button class="cart-add"><i class="bx bxs-cart-add"></i> Add to cart</button>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 promo">
-                    <h4>Followers</h4>
+                </div>
+                <div class="col-lg-6">
+                  <div class="promo">
+                    <h4>Promotion</h4>
+                    <span class="subtitle">We share your project to the world!</span>
+                    <div class="details">
+
+                      <div class="details-row text-center">
+                        <span class="fixed-total">35 USD</span>
+                      </div>
+
+                      <div class="details-row text-center">
+                        <button class="cart-add"><i class="bx bxs-cart-add"></i> Add to cart</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
           <!-- <a class="option" data-bs-toggle="collapse" href="#reddit" role="button" aria-expanded="false" aria-controls="reddit">Reddit</a>
           <div class="col-12">
             <div class="collapse multi-collapse" id="reddit">

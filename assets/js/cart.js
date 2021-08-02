@@ -11,7 +11,7 @@ $("#price1-1").on("keyup", function() {
         $("#price1-1").val(10000)
         $("#calc1-1").html("+<span id='total1-1'>" + $("#price1-1").val() + "</span> USD")
     }
-    $("#totalSum").text("Total: " + checkTotal() + " USD")
+    $("#total-sum").text("Total: " + checkTotal() + " USD")
 })
 
 $("#y1").click(function() {
@@ -22,16 +22,16 @@ $("#y1").click(function() {
         $("#n1").removeClass("active")
 
         if($("#price1-4").val() == "") {
-            $("#calc1-2").text("+2 USD/hour")
+            $("#calc1-2").text("2 USD/hour")
         }
         else if($("#h1-radio").is(":checked")){
-            $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+            $("#calc1-2").html("2 USD/hour (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
         }
         else if($("#d1-radio").is(":checked")){
-            $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+            $("#calc1-2").html("48 USD/day (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
         }
     }
-    $("#totalSum").text("Total: " + checkTotal() + " USD")
+    $("#total-sum").text("Total: " + checkTotal() + " USD")
 })
 
 $("#n1").click(function() {
@@ -43,7 +43,7 @@ $("#n1").click(function() {
 
         $("#calc1-2").text("")
     }
-    $("#totalSum").text("Total: " + checkTotal() + " USD")
+    $("#total-sum").text("Total: " + checkTotal() + " USD")
 })
 
 $("#h1").click(function() {
@@ -58,35 +58,35 @@ $("#h1").click(function() {
         }
         else if(BigNumber($("#price1-4").val()).lte(72)){
             if($("#h1-radio").is(":checked")){
-                $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                $("#calc1-4").html("2 USD/hour (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
                 if($("#y1-radio").is(":checked")){
-                    $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                    $("#calc1-2").html("2 USD/hour (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
                 }
             }
             else if($("#d1-radio").is(":checked")){
-                $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                $("#calc1-4").html("48 USD/day (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
                 if($("#y1-radio").is(":checked")){
-                    $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                    $("#calc1-2").html("48 USD/day (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
                 }
             }
         }
         else {
             $("#price1-4").val(72)
             if($("#h1-radio").is(":checked")){
-                $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                $("#calc1-4").html("2 USD/hour (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
                 if($("#y1-radio").is(":checked")){
-                    $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                    $("#calc1-2").html("2 USD/hour (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
                 }
             }
             else if($("#d1-radio").is(":checked")){
-                $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                $("#calc1-4").html("48 USD/day (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
                 if($("#y1-radio").is(":checked")){
-                    $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                    $("#calc1-2").html("48 USD/day (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
                 }
             }
         }
     }
-    $("#totalSum").text("Total: " + checkTotal() + " USD")
+    $("#total-sum").text("Total: " + checkTotal() + " USD")
 })
 $("#d1").click(function() {
     if(!$("#d1").hasClass("active")) {
@@ -100,35 +100,35 @@ $("#d1").click(function() {
         }
         else if(BigNumber($("#price1-4").val()).lte(72)){
             if($("#h1-radio").is(":checked")){
-                $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                $("#calc1-4").html("2 USD/hour (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
                 if($("#y1-radio").is(":checked")){
-                    $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                    $("#calc1-2").html("2 USD/hour (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
                 }
             }
             else if($("#d1-radio").is(":checked")){
-                $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                $("#calc1-4").html("48 USD/day (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
                 if($("#y1-radio").is(":checked")){
-                    $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                    $("#calc1-2").html("48 USD/day (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
                 }
             }
         }
         else {
             $("#price1-4").val(72)
             if($("#h1-radio").is(":checked")){
-                $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                $("#calc1-4").html("2 USD/hour (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
                 if($("#y1-radio").is(":checked")){
-                    $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                    $("#calc1-2").html("2 USD/hour (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
                 }
             }
             else if($("#d1-radio").is(":checked")){
-                $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                $("#calc1-4").html("48 USD/day (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
                 if($("#y1-radio").is(":checked")){
-                    $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                    $("#calc1-2").html("48 USD/day (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
                 }
             }
         }
     }
-    $("#totalSum").text("Total: " + checkTotal() + " USD")
+    $("#total-sum").text("Total: " + checkTotal() + " USD")
 })
 
 $("#price1-3").on("keyup", function() {
@@ -147,7 +147,7 @@ $("#price1-3").on("keyup", function() {
         $("#price1-3").val(10)
         $("#calc1-3").html("+<span id='total1-3'>60</span> USD")
     }
-    $("#totalSum").text("Total: " + checkTotal() + " USD")
+    $("#total-sum").text("Total: " + checkTotal() + " USD")
 })
 
 $("#price1-4").on("keyup", function() {
@@ -156,34 +156,34 @@ $("#price1-4").on("keyup", function() {
     }
     else if(BigNumber($("#price1-4").val()).lte(72)){
         if($("#h1-radio").is(":checked")){
-            $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+            $("#calc1-4").html("2 USD/hour (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
             if($("#y1-radio").is(":checked")){
-                $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                $("#calc1-2").html("2 USD/hour (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
             }
         }
         else if($("#d1-radio").is(":checked")){
-            $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+            $("#calc1-4").html("48 USD/day (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
             if($("#y1-radio").is(":checked")){
-                $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                $("#calc1-2").html("48 USD/day (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
             }
         }
     }
     else {
         $("#price1-4").val(72)
         if($("#h1-radio").is(":checked")){
-            $("#calc1-4").html("+2 USD/hour (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+            $("#calc1-4").html("2 USD/hour (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
             if($("#y1-radio").is(":checked")){
-                $("#calc1-2").html("+2 USD/hour (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
+                $("#calc1-2").html("2 USD/hour (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(2) + "</span> USD)")
             }
         }
         else if($("#d1-radio").is(":checked")){
-            $("#calc1-4").html("+48 USD/day (<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+            $("#calc1-4").html("48 USD/day (+<span id='total1-4'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
             if($("#y1-radio").is(":checked")){
-                $("#calc1-2").html("+48 USD/day (<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span>USD)")
+                $("#calc1-2").html("48 USD/day (+<span id='total1-2'>" + BigNumber($("#price1-4").val()).times(48) + "</span> USD)")
             }
         }
     }
-    $("#totalSum").text("Total: " + checkTotal() + " USD")
+    $("#total-sum").text("Total: " + checkTotal() + " USD")
 })
 
 function checkTotal(){
@@ -204,7 +204,6 @@ function checkTotal(){
 }
 
 
-//add hidden radio buttons
 
 //------------------------------------------------------------------------------
 //add new key=>value to the HTML5 storage

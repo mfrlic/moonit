@@ -581,6 +581,7 @@ section {
   text-align: center;
   background-image: linear-gradient(to bottom right, var(--primary-light), var(--secondary-dark));
   border-radius: 25px;
+  padding: 25px 0px;
 }
 
 .pricing .promo h4 {
@@ -618,7 +619,8 @@ section {
 .pricing .details {
   text-align: left;
   color: var(--text);
-  margin: 40px 0px 40px 80px
+  margin: 60px 60px 20px 60px;
+  padding: 0px 15px;
 }
 
 .pricing input {
@@ -634,9 +636,9 @@ section {
   background: var(--secondary);
   color: var(--text);
   border-radius: 10px;
-  padding: 5px 10px;
-  font-size: 22px;
+  padding: 4px 8px;
   border: none;
+  margin: 0px 5px;
   transition: 0.3s;
 }
 
@@ -651,6 +653,43 @@ section {
 
 .pricing .price-radio.active:hover {
   background: var(--button-hover);
+}
+
+.pricing .details-row {
+  margin: 15px 0px
+}
+
+.pricing .cart-add {
+  background: var(--button);
+  border: none;
+  color: var(--button-text);
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pricing .cart-add:hover {
+  background: var(--button-hover);
+}
+
+.pricing .fixed-total {
+  color: var(--text-hover);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+#calc1-1, #calc1-2, #calc1-3, #calc1-4 {
+  float: right;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#total-sum {
+  float: right;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
 }
 
 
