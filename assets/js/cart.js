@@ -203,18 +203,157 @@ function checkTotal(){
     return sum
 }
 
+$("#btn-giveaway").click(function() {
+    if($("#price1-1").val() != "" && $("#price1-3").val() != "" && $("#price1-4").val() != "") {
+        localStorage.setItem("giveaway", $("#price1-1").val())
+
+        localStorage.setItem("giveaway_pinned", $("#y1-radio").is(":checked") ? "Yes" : "No")
+        localStorage.setItem("giveaway_pinned_total", $("#calc1-2").text() != "" ? $("#calc1-2").text() : "-")
+
+        localStorage.setItem("giveaway_interactions", $("#price1-3").val())
+        localStorage.setItem("giveaway_interactions_total", $("#calc1-3").text())
+
+        localStorage.setItem("giveaway_duration", $("#price1-4").val() + ($("#h1-radio").is(":checked") ? "h" : "d"))
+        localStorage.setItem("giveaway_duration_total", $("#calc1-4").text())
+
+        localStorage.setItem("giveaway_total", $("#total-sum").text().split(" ")[1])
+        doShowAll()
+    }
+})
+
+$("#giveaway-close").click(function() {
+    localStorage.removeItem("giveaway");
+    localStorage.removeItem("giveaway_pinned");
+    localStorage.removeItem("giveaway_pinned_total");
+    localStorage.removeItem("giveaway_interactions");
+    localStorage.removeItem("giveaway_interactions_total");
+    localStorage.removeItem("giveaway_duration");
+    localStorage.removeItem("giveaway_duration_total");
+    localStorage.removeItem("giveaway_total");
+    doShowAll();
+})
+
+$("#btn-promotion").click(function() {
+    localStorage.setItem("promotion", 35);
+    doShowAll();
+})
+
+$("#promotion-close").click(function() {
+    localStorage.removeItem("promotion");
+    doShowAll();
+})
+
+$("#send-offer").click(function() {
+    if(localStorage.getItem("promotion") || localStorage.getItem("giveaway") && $("#contact-input").val() != "") {
+        var price = 0;
+        var summary = "";
+
+        if(localStorage.getItem("giveaway")) {
+            summary +=
+            "Giveaway\n" 
+            + "Amount: " + localStorage.getItem("giveaway") + " USD (+" + localStorage.getItem("giveaway") + " USD)\n" 
+            + "Pinned: " + localStorage.getItem("giveaway_pinned") + " (" + localStorage.getItem("giveaway_pinned_total") + ")\n" 
+            + "Interactions: " + localStorage.getItem("giveaway_interactions") + " (" + localStorage.getItem("giveaway_interactions_total") + ")\n" 
+            + "Duration: " + localStorage.getItem("giveaway_duration") + " (" + localStorage.getItem("giveaway_duration_total") + ")\n" 
+            + "Giveaway total: " + localStorage.getItem("giveaway_total") + " USD\n\n";
+        
+            price = BigNumber(price).plus(localStorage.getItem("giveaway_total"))
+        }
+
+        if(localStorage.getItem("promotion")) {
+            summary += 
+            "Promotion\n" 
+            + "Promotion total: " + localStorage.getItem("promotion") + " USD\n\n" 
+
+            price = BigNumber(price).plus(localStorage.getItem("promotion"))
+        }
+
+        summary += "Total: " + price + "USD\n\n"
+
+        summary += $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
+
+        $("#order-summary").val(summary)
+    }
+})
+
+$("#send-offer").click(function() {
+    if(localStorage.getItem("promotion") || localStorage.getItem("giveaway") && $("#contact-input").val() != "") {
+        var price = 0;
+        var summary = "";
+
+        if(localStorage.getItem("giveaway")) {
+            summary +=
+            "Giveaway\n" 
+            + "Amount: " + localStorage.getItem("giveaway") + " USD (+" + localStorage.getItem("giveaway") + " USD)\n" 
+            + "Pinned: " + localStorage.getItem("giveaway_pinned") + " (" + localStorage.getItem("giveaway_pinned_total") + ")\n" 
+            + "Interactions: " + localStorage.getItem("giveaway_interactions") + " (" + localStorage.getItem("giveaway_interactions_total") + ")\n" 
+            + "Duration: " + localStorage.getItem("giveaway_duration") + " (" + localStorage.getItem("giveaway_duration_total") + ")\n" 
+            + "Giveaway total: " + localStorage.getItem("giveaway_total") + " USD\n\n";
+        
+            price = BigNumber(price).plus(localStorage.getItem("giveaway_total"))
+        }
+
+        if(localStorage.getItem("promotion")) {
+            summary += 
+            "Promotion\n" 
+            + "Promotion total: " + localStorage.getItem("promotion") + " USD\n\n" 
+
+            price = BigNumber(price).plus(localStorage.getItem("promotion"))
+        }
+
+        summary += "Total: " + price + "USD\n\n"
+
+        summary += $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
+
+        $("#order-summary").val(summary)
+    }
+})
+
+$("#submit-p").click(function() {
+    if($("#firstname").val() != "" && $("#lastname").val() != "" && $("#email-p").val() != "" && $("#message").val() != "") {
+        if($("#checkbox1").is(":checked") || $("#checkbox2").is(":checked") || $("#checkbox3").is(":checked") || $("#checkbox4").is(":checked") || $("#checkbox5").is(":checked") || $("#checkbox6").is(":checked")) {
+            var summary = 
+            "First name: " + $("#firstname").val() + "\n\n"
+            + "Last name: " + $("#lastname").val() + "\n\n"
+            + "Email: " + $("#email-p").val() + "\n\n"
+            + "Interested in:\n"
+            + ($("#checkbox1").is(":checked") ? "Twitter\n" : "")
+            + ($("#checkbox2").is(":checked") ? "Reddit\n" : "")
+            + ($("#checkbox3").is(":checked") ? "4chan\n" : "")
+            + ($("#checkbox4").is(":checked") ? "Telegram\n" : "")
+            + ($("#checkbox5").is(":checked") ? "TikTok\n" : "")
+            + ($("#checkbox6").is(":checked") ? "Youtube\n" : "")
+            + "\nMessage:\n"
+            + $("#message").val()
+
+            $("#p-summary").val(summary)
+        }
+    }
+})
+
+$("#submit-q").click(function() {
+    if($("#email-q").val() != "" && $("#question").val() != "") {
+        var summary = 
+        "Email: " + $("#email-q").val() + "\n"
+        + "\nQuestion:\n"
+        + $("#question").val()
+
+        $("#q-summary").val(summary)
+        $("#q-form").submit()
+    }
+})
 
 
 //------------------------------------------------------------------------------
 //add new key=>value to the HTML5 storage
-function SaveItem(type, quantity) {
-    localStorage.setItem(type, quantity);
+function SaveItem(type, cost) {
+    localStorage.setItem(type, cost);
     doShowAll();
 }
 //------------------------------------------------------------------------------
 //change an existing key=>value in the HTML5 storage
-function ModifyItem(type, quantity) {
-    localStorage.setItem(type, quantity + parseInt(localStorage.getItem(type)));
+function ModifyItem(type, cost) {
+    localStorage.setItem(type, cost + parseInt(localStorage.getItem(type)));
     doShowAll();
 }
 //-------------------------------------------------------------------------
@@ -234,51 +373,64 @@ function ClearAll() {
 //below step can be done via PHP and AJAX too. 
 function doShowAll() {
     if (CheckBrowser()) {
-    var key = "";
-    var key_close = "";
-    var key_input = "";
-    var list = "<tr><th>Item</th><th>Value</th><th></th></tr>\n";
+    var list = "<tr><th></th><th></th><th></th><th></th></tr>\n";
     var total = 0;
-    var i = 0;
-    //for more advance feature, you can set cap on max items in the cart
-    for (i = 0; i <= localStorage.length-1; i++) {
-        key = localStorage.key(i);
-        if(key == "100 Retweets") {
-            key_close = "RTclose100";
-            key_input = "RTinput100"
-        }
-        else if(key == "500 Retweets") {
-            key_close = "RTclose500";
-            key_input = "RTinput500"
-        }
-        else if(key == "1000 Retweets") {
-            key_close = "RTclose1000";
-            key_input = "RTinput1000"
-        }
-        else if(key == "100 Favorites") {
-            key_close = "FAVclose100";
-            key_input = "FAVinput100"
-        }
-        else if(key == "500 Favorites") {
-            key_close = "FAVclose500";
-            key_input = "FAVinput500"
-        }
-        else if(key == "1000 Favorites") {
-            key_close = "FAVclose1000";
-            key_input = "FAVinput1000"
-        }
-        else key_close = "blj";
+    var price = 0;
 
-        list += "<tr><td>" + key + "</td>\n<td> <input type='number' id='" + key_input + "' value='" + localStorage.getItem(key) + "' min='1' max='99'>"
-        + '</td><td><span class="cart-close-single" id="' + key_close + '"><i class="bx bx-x"></i></span></td></tr>\n';
-        total += parseInt(localStorage.getItem(key));
+    if(localStorage.getItem("giveaway")) {
+        list += 
+        "<tr class='cart-main'><td>Giveaway</td>" 
+        + "<td></td>" 
+        + "<td></td>" 
+        + "<td><span class='cart-close-single' id='giveaway-close'><i class='bx bx-x'></i></span></td></tr>"
+        
+        + "<tr class='cart-details'><td>Amount</td>"
+        + "<td>" + localStorage.getItem("giveaway") + " USD</td>" 
+        + "<td>+" + localStorage.getItem("giveaway") + " USD</td>" 
+        + "<td></td></tr>"
+
+        + "<tr class='cart-details'><td>Pinned</td>" 
+        + "<td>" + localStorage.getItem("giveaway_pinned") + "</td>" 
+        + "<td>" + localStorage.getItem("giveaway_pinned_total") + "</td>" 
+        + "<td></td></tr>"
+
+        + "<tr class='cart-details'><td>Interactions</td>" 
+        + "<td>" + localStorage.getItem("giveaway_interactions") + "</td>" 
+        + "<td>" + localStorage.getItem("giveaway_interactions_total") + "</td>" 
+        + "<td></td></tr>"
+
+        + "<tr class='cart-details'><td>Duration</td>" 
+        + "<td>" + localStorage.getItem("giveaway_duration") + "</td>" 
+        + "<td>" + localStorage.getItem("giveaway_duration_total") + "</td>" 
+        + "<td></td></tr>"
+
+        + "<tr class='cart-total'><td>Total</td>" 
+        + "<td></td>"
+        + "<td>" + localStorage.getItem("giveaway_total") + " USD</td>" 
+        + "<td></td></tr>";
+    
+        total += 1;
+        price = BigNumber(price).plus(localStorage.getItem("giveaway_total"))
     }
-    list += ""
-        //if no item exists in the cart
-    if (list == "<tr><th>Item</th><th>Value</th><th></th></tr>\n") {
+
+    if(localStorage.getItem("promotion")) {
+        list += 
+        "<tr class='cart-promotion'><td>Promotion</td>" 
+        + "<td></td>" 
+        + "<td>" + localStorage.getItem("promotion") + " USD</td>" 
+        + "<td><span class='cart-close-single' id='promotion-close'><i class='bx bx-x'></i></span></td></tr>"
+
+        total += 1;
+        price = BigNumber(price).plus(localStorage.getItem("promotion"))
+    }
+
+    if(localStorage.getItem("promotion") || localStorage.getItem("giveaway")) {
+        $("#cart-total").text("Total: " + price + " USD")
+    }
+
+    if (list == "<tr><th></th><th></th><th></th><th></th></tr>\n") {
         list = "<i>Your cart is empty.</i>";
     }
-    //bind the data to html table
 
     $("#list").html(list)
 

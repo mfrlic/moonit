@@ -353,7 +353,7 @@ section {
 }
 
 .section-bg {
-  background: var(--primary);
+  background: var(--primary-light);
 }
 
 .section-title {
@@ -496,6 +496,7 @@ section {
 #cart table {
   width: 100%;
   text-align: center;
+  margin: 20px 0px 40px 0px;
 }
 
 #cart .cart-close {
@@ -506,7 +507,7 @@ section {
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
-  float:right;
+  float: right;
 }
 
 #cart .cart-close:hover {
@@ -517,10 +518,11 @@ section {
   background: rgba(221, 0, 0, 0.3);
   color: rgb(180, 0, 0);
   font-size: 22px;
-  padding: 2px 5px;
+  padding: 2px 6px;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
+  margin-right: 10px;
 }
 
 #cart .cart-close-single:hover {
@@ -528,8 +530,8 @@ section {
 }
 
 #cart .cart-checkout {
-  background: rgba(54, 148, 0, 0.7);
-  color: rgb(255, 255, 255);
+  background: var(--button);
+  color: var(--button-text);
   font-size: 20px;
   padding: 5px 14px;
   border-radius: 20px;
@@ -538,7 +540,7 @@ section {
 }
 
 #cart .cart-checkout:hover {
-  background: rgba(54, 148, 0, 0.9);
+  background: var(--button-hover);
 }
 
 #cart .btn-contact {
@@ -576,6 +578,66 @@ section {
   padding: 8px 20px;
 }
 
+#cart table {
+  font-size: 18px;
+}
+
+#cart .cart-main {
+  border-top: 2px white solid;
+  border-left: 2px white solid;
+  border-right: 2px white solid;
+}
+
+#cart .cart-main td:first-child {
+  font-weight: 600;
+}
+#cart .cart-main td {
+  padding: 15px 0px;
+}
+
+#cart .cart-main td:nth-child(2), #cart .cart-main td:nth-child(3) {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+
+}
+
+#cart .cart-details {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  border-left: 2px white solid;
+  border-right: 2px white solid;
+}
+
+#cart .cart-details td:first-child {
+  text-align: left;
+  padding-left: 60px;
+}
+
+#cart .cart-total {
+  font-weight: 600;
+  margin-top: 10px;
+  border-bottom: 2px white solid;
+  border-left: 2px white solid;
+  border-right: 2px white solid;
+}
+
+#cart .cart-total td:first-child, #cart .cart-promotion td:first-child {
+  text-align: left;
+  padding: 15px 0px 15px 50px;
+}
+
+#cart .cart-promotion {
+  font-weight: 600;
+  border: 2px white solid;
+}
+
+#cart #cart-total {
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  left: 30px;
+}
+
 
 .pricing .promo {
   text-align: center;
@@ -597,7 +659,7 @@ section {
 
 .pricing .card-body {
   border: none;
-  background: var(--primary);
+  background: var(--primary-light);
 }
 
 .pricing .option {
@@ -772,6 +834,7 @@ section {
 }
 
 .contact .cut {
+  text-align: center;
   background-color: transparent;
   border-radius: 10px;
   height: 20px;
@@ -843,6 +906,19 @@ section {
 
 .contact .pos-app.active:hover {
   background: var(--button-hover);
+}
+
+.contact .container-q {
+  margin: 0 auto;
+}
+
+.contact .ta-q {
+  height: 237px;
+}
+
+.contact .t-pos {
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .contact .submit-container {
