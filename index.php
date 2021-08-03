@@ -305,13 +305,13 @@
 
         </div>
         </section>
-        <form id="cart-form" method="POST">
+        <form id="cart-form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <input id="order-summary" type="hidden">
         </form>
-        <form id="p-form" method="POST">
+        <form id="p-form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <input id="p-summary" type="hidden">
         </form>
-        <form id="q-form" method="POST" action="index.php">
+        <form id="q-form" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <input id="q-summary" type="hidden">
         </form>
     </main>
@@ -347,7 +347,7 @@
 
     <?php
         if($SERVER["REQUEST_METHOD"] == "POST") {
-            echo "FUCK";
+            echo "<script type='text/javascript'>alert('FUCK');</script>";
         }
     ?>
 </body>
