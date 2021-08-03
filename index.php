@@ -287,12 +287,12 @@
             <div id="form-q" class="form row d-none">
                 <div class="col-lg-7 container-q">
                 <div class="input-container ic1">
-                    <input id="email-q" class="input" type="text" placeholder=" " />
+                    <input id="email-q" name="email-q" class="input" type="text" placeholder=" " />
                     <div class="cut cut-short"></div>
                     <label for="email-q" class="placeholder">Email</label>
                 </div>
                 <div class="textarea-container ta-q ic2">
-                    <textarea id="question" class="input" placeholder=" "></textarea>
+                    <textarea id="question" name="question" class="input" placeholder=" "></textarea>
                     <div class="cut"></div>
                     <label for="question" class="placeholder">Question</label>
                 </div>
