@@ -346,7 +346,7 @@
     <script src="assets/js/cart.js"></script>
 
     <?php
-        if($SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['question'])) {
             echo("BLJ");
         }
     ?>
