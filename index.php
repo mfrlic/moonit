@@ -347,7 +347,7 @@
 
     <?php
         if($SERVER["REQUEST_METHOD"] == "POST") {
-            echo "<script type='text/javascript'>alert('FUCK');</script>";
+            echo("BLJ");
         }
     ?>
 </body>
