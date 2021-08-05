@@ -322,15 +322,14 @@
 
       </div>
     </section>
-    <form id="cart-form">
-      <input id="order-summary" type="hidden">
+    <form id="cart-form" action="https://formspree.io/f/xwkarabe" method="POST">
+      <input id="order-summary" type="hidden" name="cart-summary">
     </form>
     <form id="p-form" action="https://formspree.io/f/xwkarabe" method="POST">
-      <input type="email" class="d-none" name="_replyto" value="contact@moonit.marketing">
-      <input id="p-summary" type="hidden" name="message">
+      <input id="p-summary" type="hidden" name="p-summary">
     </form>
-    <form id="q-form">
-      <input id="q-summary" type="hidden" name="message">
+    <form id="q-form" action="https://formspree.io/f/xwkarabe" method="POST">
+      <input id="q-summary" type="hidden" name="q-summary">
     </form>
   </main>
 

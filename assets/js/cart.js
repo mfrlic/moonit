@@ -322,6 +322,7 @@ $("#send-offer").click(function() {
         summary += $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
 
         $("#order-summary").val(summary)
+        $("#cart-form").submit()
     }
 })
 
