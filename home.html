@@ -325,11 +325,12 @@
     <form id="cart-form">
       <input id="order-summary" type="hidden">
     </form>
-    <form id="p-form">
-      <input id="p-summary" type="hidden">
+    <form id="p-form" action="https://formspree.io/f/xwkarabe" method="POST">
+      <input type="email" class="d-none" name="_replyto" value="contact@moonit.marketing">
+      <input id="p-summary" type="hidden" name="message">
     </form>
     <form id="q-form">
-      <input id="q-summary" type="hidden">
+      <input id="q-summary" type="hidden" name="message">
     </form>
   </main>
 

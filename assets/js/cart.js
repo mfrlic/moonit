@@ -341,6 +341,7 @@ $("#submit-p").click(function() {
             + $("#message").val()
 
             $("#p-summary").val(summary)
+            $("#p-form").submit()
         }
     }
 })
