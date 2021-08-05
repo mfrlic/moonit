@@ -653,6 +653,7 @@ section {
 }
 
 .pricing .promo .subtitle {
+  margin: 0px 50px;
   color: var(--subtext);
   font-size: 18px;
 }

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +28,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="">moon.it</a></h1>
+      <h1 class="logo"><a href="home.html">moon.it</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -52,7 +51,6 @@
       <div class="row">
         <div class="col-lg-6 text-center order-lg-1 order-2">
           <h1>Need a head start to your crypto project? Let's moon it!</h1>
-          <h2>Crypto marketing agency</h2>
           <a href="#about" class="btn-get-started scrollto">Learn more</a>
           <a href="#contact" class="btn-get-started scrollto">Apply for a position</a>
         </div>
@@ -99,58 +97,19 @@
 
         <div class="section-title">
           <h2>About Us</h2>
-          <p>We aim to be the one place for every crypto project promotions. </p>
+          <p>We are the owners of a rapidly growing, high-engagement twitter account used for promoting cryptocurrency related projects</p>
         </div>
 
         <div class="row icon-boxes">
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="col-12d-flex align-items-stretch mb-5 mb-lg-4 text-center" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-twitter"></i></div>
               <h4 class="title"><a href="">Twitter</a></h4>
-              <p class="description">Promos/Followers/Retweets</p>
+              <p class="description">Promotions & Giveaways</p>
             </div>
           </div>
   
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="icon-4chan"></i></div>
-              <h4 class="title"><a href="">4chan</a></h4>
-              <p class="description">Posts/Bumps</p>
-            </div>
-          </div>
-  
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="icon-reddit"></i></div>
-              <h4 class="title"><a href="">Reddit</a></h4>
-              <p class="description">Posts/Upvotes</p>
-            </div>
-          </div>
-  
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="500">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-telegram"></i></div>
-              <h4 class="title"><a href="">Telegram</a></h4>
-              <p class="description">Promo</p>
-            </div>
-          </div>
-  
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="600">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-youtube"></i></div>
-              <h4 class="title"><a href="">Youtube</a></h4>
-              <p class="description">Promo</p>
-            </div>
-          </div>
-  
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="700">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-tiktok"></i></div>
-              <h4 class="title"><a href="">TikTok</a></h4>
-              <p class="description">Promo</p>
-            </div>
-          </div>
-  
+          
         </div>
 
       </div>
@@ -165,17 +124,20 @@
 
         <div class="row">
           <a class="option" data-bs-toggle="collapse" href="#twitter" role="button" aria-expanded="false" aria-controls="twitter">Twitter</a>
-          <div class="collapse multi-collapse" id="twitter">
+          <div class="collapse multi-collapse show" id="twitter">
             <div class="card card-body container">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="promo">
-                    <h4>Giveaway</h4>
-                    <span class="subtitle">We host a giveaway on your terms!</span>
+                    <h2>Giveaway</h2>
+                    <span style="color: gray;" class="subtitle">We host a giveaway on your terms! Have people join your chat, upvote your Reddit post and more!</span>
+                    
                     <div class="details">
                       <div class="details-row">
-                        Giveaway amount: <input id="price1-1" type="number" min=10 max=10000> USD <span id="calc1-1"></span>
+                        Giveaway amount: <input id="price1-1" type="number" min=50 max=10000> USD <span id="calc1-1"></span>
                       </div>
+
+                      <p style="color: grey; text-decoration: italics;">* Amount the giveaway winner gets</p>
 
                       <div class="details-row">
                         Pin the tweet?<button id="y1" class="price-radio">Yes</button><button id="n1" class="price-radio active">No</button> <span id="calc1-2"></span>
@@ -183,21 +145,24 @@
                         <input checked id="n1-radio" class="d-none" name="radio1-1" type="radio">
                       </div>
 
-                      <div class="details-row">
-                        Number of interactions required: <input id="price1-3" type="number" min=1 max=10> <span id="calc1-3"></span>
-                      </div>
+                      <p style="color: grey; text-decoration: italics;">* Have the tweet pinned to the top of our page for the duration of the giveaway</p>
 
                       <div class="details-row">
-                        Giveaway duration: <input id="price1-4" type="number" min=1 max=72> <button id="h1" class="price-radio active">Hours</button><button id="d1" class="price-radio">Days</button> <span id="calc1-4"></span>
+                        Number of actions: <input id="price1-3" type="number" min=1 max=5> <span id="calc1-3"></span>
+                      </div>
+
+                      <p style="color: grey; text-decoration: italics;">* Number of actions a user has to perform to enter the giveaway. for example: follow your Twitter and join your Telegram chat - 2 actions</p>
+
+                      <div class="details-row">
+                        Giveaway duration: <input id="price1-4" type="number" min=1 max=24> <button id="h1" class="price-radio active">Hours</button><button id="d1" class="price-radio">Days</button> <span id="calc1-4"></span>
                         <input checked id="h1-radio" class="d-none" name="radio1-2" type="radio">
                         <input id="d1-radio" class="d-none" name="radio1-2" type="radio">
                       </div>
 
-                      <div class="details-row">
-                        <span id="total-sum">Total: 0 USD</span>
-                      </div>
 
-                      <br>
+                      <div class="details-row">
+                        <span style="font-size: 25px; float: inherit;" id="total-sum">Total: 0 USD</span>
+                      </div><br>
 
                       <div class="details-row text-center">
                         <button id="btn-giveaway" class="cart-add"><i class="bx bxs-cart-add"></i> Add to cart</button>
@@ -207,8 +172,8 @@
                 </div>
                 <div class="col-lg-6">
                   <div class="promo">
-                    <h4>Promotion</h4>
-                    <span class="subtitle">We share your project to the world!</span>
+                    <h2>Promotion</h2>
+                    <span style="color: gray;" class="subtitle">Prmote your project on our Twitter page</span>
                     <div class="details">
 
                       <div class="details-row text-center">
@@ -225,6 +190,67 @@
             </div>
           </div>
         </div>
+          <!-- <a class="option" data-bs-toggle="collapse" href="#reddit" role="button" aria-expanded="false" aria-controls="reddit">Reddit</a>
+          <div class="col-12">
+            <div class="collapse multi-collapse" id="reddit">
+              <div class="card card-body container">
+                <div class="row">
+                  <div class="col-lg-6 promo">
+                    <h4>Posts</h4>
+                    CMS Post ($5) <span>+</span><br>
+                    WSB Post ($5) <span>+</span><br>
+                    Others ($1/Post) <span>+</span>
+                  </div>
+                  <div class="col-lg-6 promo">
+                    <h4>Upvotes</h4>
+                    100 ($10) <span>+</span><br>
+                    500 ($40) <span>+</span><br>
+                    1000 ($70) <span>+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="option" data-bs-toggle="collapse" href="#biz" role="button" aria-expanded="false" aria-controls="biz">4chan</a>
+          <div class="col-12">
+            <div class="collapse multi-collapse" id="biz">
+              <div class="card card-body container">
+                <div class="row">
+                  <div class="col-lg-6 promo">
+                    <h4>Threads</h4>
+                    Low quality threads ($10) <span>+</span><br>
+                    High quality threads w/custom memes ($25) <span>+</span><br>
+                  </div>
+                  <div class="col-lg-6 promo">
+                    <h4>Bumps</h4>
+                    100 Slow ($10) <span>+</span><br>
+                    100 Rapid ($10) <span>+</span><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="option" data-bs-toggle="collapse" href="#tg" role="button" aria-expanded="false" aria-controls="tg">Telegram</a>
+          <div class="col-12">
+            <div class="collapse multi-collapse" id="tg">
+              <div class="card card-body container">
+                <div class="row">
+                  <div class="col-lg-6 promo">
+                    <h4>Pins</h4>
+                    Pinned in a 1k+ member group 24h ($10) <span>+</span><br>
+                    Pinned in a 10k+ member group 24h ($50) <span>+</span><br>
+                    Pinned in a 50k+ member group 24h ($200) <span>+</span><br>
+                  </div>
+                  <div class="col-lg-6 promo">
+                    <h4>Advertising</h4>
+                    10 People Shill Campaign 1 week ($10) <span>+</span><br>
+                    100 People Shill Campaign 1 week ($90) <span>+</span><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
       </div>
     </section>
 
@@ -244,16 +270,6 @@
           <div id="form-p" class="form row">
             <div class="col-lg-6">
               <div class="input-container ic1">
-                <input id="firstname" class="input" type="text" placeholder=" " />
-                <div class="cut"></div>
-                <label for="firstname" class="placeholder">First name</label>
-              </div>
-              <div class="input-container ic2">
-                <input id="lastname" class="input" type="text" placeholder=" " />
-                <div class="cut"></div>
-                <label for="lastname" class="placeholder">Last name</label>
-              </div>
-              <div class="input-container ic2">
                 <input id="email-p" class="input" type="text" placeholder=" " />
                 <div class="cut cut-short"></div>
                 <label for="email" class="placeholder">Email</label>
@@ -306,13 +322,13 @@
 
       </div>
     </section>
-    <form id="cart-form" method="POST">
+    <form id="cart-form">
       <input id="order-summary" type="hidden">
     </form>
-    <form id="p-form" method="POST">
+    <form id="p-form">
       <input id="p-summary" type="hidden">
     </form>
-    <form id="q-form" method="POST" action="index.php">
+    <form id="q-form">
       <input id="q-summary" type="hidden">
     </form>
   </main>
