@@ -1,4 +1,4 @@
-window.load=doShowAll();
+window.load=updateUI();
 
 $("#price1-1").on("keyup", function() {
     if($("#price1-1").val() == "") {
@@ -266,7 +266,7 @@ $("#btn-giveaway").click(function() {
         localStorage.setItem("giveaway_duration_total", $("#calc1-4").text())
 
         localStorage.setItem("giveaway_total", $("#total-sum").text().split(" ")[1])
-        doShowAll()
+        updateUI()
     }
 })
 
@@ -279,115 +279,25 @@ $("#giveaway-close").click(function() {
     localStorage.removeItem("giveaway_duration");
     localStorage.removeItem("giveaway_duration_total");
     localStorage.removeItem("giveaway_total");
-    doShowAll();
+    updateUI();
 })
 
 $("#btn-promotion").click(function() {
     localStorage.setItem("promotion", 35);
-    doShowAll();
+    updateUI();
 })
 
 $("#promotion-close").click(function() {
     localStorage.removeItem("promotion");
-    doShowAll();
+    updateUI();
 })
 
-$("#send-offer").click(function() {
-    if(localStorage.getItem("promotion") || localStorage.getItem("giveaway") && $("#contact-input").val() != "") {
-        var price = 0;
-        var summary = "";
-
-        if(localStorage.getItem("giveaway")) {
-            summary +=
-            "Giveaway\n" 
-            + "Amount: " + localStorage.getItem("giveaway") + " USD (+" + localStorage.getItem("giveaway") + " USD)\n" 
-            + "Pinned: " + localStorage.getItem("giveaway_pinned") + " (" + localStorage.getItem("giveaway_pinned_total") + ")\n" 
-            + "Interactions: " + localStorage.getItem("giveaway_interactions") + " (" + localStorage.getItem("giveaway_interactions_total") + ")\n" 
-            + "Duration: " + localStorage.getItem("giveaway_duration") + " (" + localStorage.getItem("giveaway_duration_total") + ")\n" 
-            + "Giveaway total: " + localStorage.getItem("giveaway_total") + " USD\n\n";
-        
-            price = BigNumber(price).plus(localStorage.getItem("giveaway_total"))
-        }
-
-        if(localStorage.getItem("promotion")) {
-            summary += 
-            "Promotion\n" 
-            + "Promotion total: " + localStorage.getItem("promotion") + " USD\n\n" 
-
-            price = BigNumber(price).plus(localStorage.getItem("promotion"))
-        }
-
-        summary += "Total: " + price + "USD\n\n"
-
-        summary += $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
-
-        $("#order-summary").val(summary)
-        $("#cart-form").submit()
-    }
-})
-
-$("#submit-p").click(function() {
-    if($("#email-p").val() != "" && $("#message").val() != "") {
-        if($("#checkbox1").is(":checked") || $("#checkbox2").is(":checked") || $("#checkbox3").is(":checked") || $("#checkbox4").is(":checked") || $("#checkbox5").is(":checked") || $("#checkbox6").is(":checked")) {
-            var summary = 
-            "Email: " + $("#email-p").val() + "\n\n"
-            + "Interested in:\n"
-            + ($("#checkbox1").is(":checked") ? "Twitter\n" : "")
-            + ($("#checkbox2").is(":checked") ? "Reddit\n" : "")
-            + ($("#checkbox3").is(":checked") ? "4chan\n" : "")
-            + ($("#checkbox4").is(":checked") ? "Telegram\n" : "")
-            + ($("#checkbox5").is(":checked") ? "TikTok\n" : "")
-            + ($("#checkbox6").is(":checked") ? "Youtube\n" : "")
-            + "\nMessage:\n"
-            + $("#message").val()
-
-            $("#p-summary").val(summary)
-            $("#p-form").submit()
-        }
-    }
-})
-
-$("#submit-q").click(function() {
-    if($("#email-q").val() != "" && $("#question").val() != "") {
-        var summary = 
-        "Email: " + $("#email-q").val() + "\n"
-        + "\nQuestion:\n"
-        + $("#question").val()
-
-        $("#q-summary").val(summary)
-        $("#q-form").submit()
-    }
-})
-
-
-//------------------------------------------------------------------------------
-//add new key=>value to the HTML5 storage
-function SaveItem(type, cost) {
-    localStorage.setItem(type, cost);
-    doShowAll();
-}
-//------------------------------------------------------------------------------
-//change an existing key=>value in the HTML5 storage
-function ModifyItem(type, cost) {
-    localStorage.setItem(type, cost + parseInt(localStorage.getItem(type)));
-    doShowAll();
-}
-//-------------------------------------------------------------------------
-//delete an existing key=>value from the HTML5 storage
-function RemoveItem(type) {
-    localStorage.removeItem(type);
-    doShowAll();
-}
-//-------------------------------------------------------------------------------------
-//restart the local storage
 function ClearAll() {
     localStorage.clear();
-    doShowAll();
+    updateUI();
 }
-//--------------------------------------------------------------------------------------
-// dynamically populate the table with shopping list items
-//below step can be done via PHP and AJAX too. 
-function doShowAll() {
+
+function updateUI() {
     if (CheckBrowser()) {
     var list = "<tr><th></th><th></th><th></th><th></th></tr>\n";
     var total = 0;
@@ -462,11 +372,6 @@ function doShowAll() {
     }
 }
 
-/*
-=====> Checking the browser support
-//this step may not be required as most of modern browsers do support HTML5
-*/
-//below function may be redundant
 function CheckBrowser() {
     if ('localStorage' in window && window['localStorage'] !== null) {
         // we can use localStorage object to store data
@@ -476,7 +381,3 @@ function CheckBrowser() {
         return false;
     }
 }
-//-------------------------------------------------
-/*
-You can extend this script by inserting data to database or adding payment processing API to shopping cart..
-*/
