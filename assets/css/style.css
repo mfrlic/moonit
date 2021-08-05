@@ -49,9 +49,12 @@
   --button-text: rgb(70, 70, 70);
 }
 
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 body, html {
   height: 100%;
-  font-family: "Open Sans", sans-serif;
   background: var(--secondary);
   color: var(--text);
 }
@@ -64,10 +67,6 @@ a {
 a:hover {
   color: var(--text-hover);
   text-decoration: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
 }
 
 .back-to-top {
@@ -169,7 +168,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   font-weight: 300;
   letter-spacing: 0.5px;
-  font-family: "Poppins", sans-serif;
 }
 
 #header .logo a {
@@ -298,7 +296,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 72px;
   color: var(--text);
-  font-family: "Poppins", sans-serif;
 }
 
 #home h2 {
@@ -308,7 +305,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #home .btn-get-started {
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 0.5px;
@@ -859,7 +855,6 @@ section {
 
 .contact .placeholder {
   color: #65657b;
-  font-family: sans-serif;
   left: 20px;
   line-height: 14px;
   pointer-events: none;

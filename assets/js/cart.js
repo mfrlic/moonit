@@ -374,7 +374,6 @@ function updateUI() {
 
 function CheckBrowser() {
     if ('localStorage' in window && window['localStorage'] !== null) {
-        // we can use localStorage object to store data
         return true;
     } 
     else {
