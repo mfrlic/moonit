@@ -66,7 +66,7 @@ $("#submit-p").click(function() {
             var title = "Position application"
 
             var summary = 
-            "Email: <b>" + $("#email-p").val() + "</b><br>"
+            "Email: <b>" + $("#email-p").val() + "</b><br><br>"
             + "Interested in:<br>"
             + ($("#checkbox1").is(":checked") ? "<b>Twitter</b><br>" : "")
             + ($("#checkbox2").is(":checked") ? "<b>Reddit</b><br>" : "")
