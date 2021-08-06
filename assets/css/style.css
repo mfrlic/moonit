@@ -204,12 +204,14 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0 10px 30px;
+  padding: 10px 15px 10px 15px;
+  margin-left: 10px;
   font-size: 17px;
   font-weight: 600;
   color: var(--text);
   white-space: nowrap;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 .navbar a i, .navbar a:focus i {
@@ -219,7 +221,8 @@ a:hover {
 }
 
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: var(--text-hover);
+  background-color: var(--button);
+  color: var(--primary);
 }
 
 .navbar .btn-cart-container {
@@ -925,7 +928,7 @@ section {
 
 .contact .submit {
   background-color: var(--button);
-  border-radius: 12px;
+  border-radius: 10px;
   border: 0;
   box-sizing: border-box;
   color: var(--button-text);
