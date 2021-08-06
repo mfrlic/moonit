@@ -134,8 +134,15 @@ $("#submit-p").click(function() {
 
 $("#submit-q").click(function() {
     if($("#email-q").val() != "" && $("#question").val() != "") {
+        var title = "General question"
+
         var summary = 
-        "General question\n\nEmail: " + $("#email-q").val() + "\n"
+        "Email: <b>" + $("#email-q").val() + "</b><br><br>"
+        + "Question:<br><i>"
+        + $("#question").val() + "</i>"
+
+        var summary_raw = 
+        "Email: " + $("#email-q").val() + "\n"
         + "\nQuestion:\n"
         + $("#question").val()
 
@@ -145,7 +152,9 @@ $("#submit-q").click(function() {
             async: false,
             cache: false,
             data: {
-                summary: summary
+                title: title,
+                summary: summary,
+                summary_raw: summary_raw
             },
 
             success: function(response) {
