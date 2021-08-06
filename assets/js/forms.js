@@ -27,16 +27,6 @@ $("#send-offer").click(function() {
         "Total: " + price + "USD\n\n"
         + $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
 
-        localStorage.clear()
-        updateUI();
-
-        $("#contact-input").val("")
-        $("#contact1").prop("checked", true)
-
-        $("#contact1").addClass("active")
-        $("#contact2").removeClass("active")
-        $("#contact3").removeClass("active")
-
         $("#summary").val(summary)
 
         $.ajax ({
@@ -44,10 +34,21 @@ $("#send-offer").click(function() {
             type: "POST",
             async: false,
             cache: false,
-            data: summary,
+            data: $("#form").serialize(),
 
             success: function(response) {
                 alert(response);
+
+                localStorage.clear()
+                updateUI();
+        
+                $("#contact-input").val("")
+                $("#contact1").prop("checked", true)
+        
+                $("#contact1").addClass("active")
+                $("#contact2").removeClass("active")
+                $("#contact3").removeClass("active")
+
                 return response;        
             },
             error: function() {
