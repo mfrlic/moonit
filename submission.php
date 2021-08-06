@@ -28,7 +28,7 @@ if(isset($_POST["summary"])) {
     $mail->From = "moonit.marketing@gmail.com";
     $mail->FromName = "moon.it";
 
-    $mail->addAddress("mariofrlic15@gmail.com");
+    $mail->addAddress("contact@moonit.marketing");
 
     $mail->isHTML(true);
 
