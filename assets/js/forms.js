@@ -88,12 +88,19 @@ $("#submit-p").click(function() {
             
                     $("#email-p").val("")
 
-                    $("#opt1").prop("checked", false)
-                    $("#opt2").prop("checked", false)
-                    $("#opt3").prop("checked", false)
-                    $("#opt4").prop("checked", false)
-                    $("#opt5").prop("checked", false)
-                    $("#opt6").prop("checked", false)
+                    $("#opt1").removeClass("active")
+                    $("#opt2").removeClass("active")
+                    $("#opt3").removeClass("active")
+                    $("#opt4").removeClass("active")
+                    $("#opt5").removeClass("active")
+                    $("#opt6").removeClass("active")
+
+                    $("#checkbox1").prop("checked", false)
+                    $("#checkbox2").prop("checked", false)
+                    $("#checkbox3").prop("checked", false)
+                    $("#checkbox4").prop("checked", false)
+                    $("#checkbox5").prop("checked", false)
+                    $("#checkbox6").prop("checked", false)
 
                     $("#message").val("")
     
