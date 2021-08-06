@@ -5,6 +5,12 @@ $(document).ready(function() {
 
 $("#price1-1").on("change", function() {
     $("#calc1-1").html("+<span id='total1-1'>" + $("#price1-1").val() + "</span> USD")
+    if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway") != $("#price1-1").val()) {
+        $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+    }
+    else if(localStorage.getItem("giveaway")) {
+        $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
+    }
     updateTotal()
 })
 
@@ -16,6 +22,13 @@ $("#y1").click(function() {
         $("#n1").removeClass("active")
 
         $("#calc1-2").html("+<span id='total1-2'>10</span> USD")
+
+        if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway_pinned") != "Yes") {
+            $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+        }
+        else if(localStorage.getItem("giveaway")) {
+            $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
+        }
     }
     updateTotal()
 })
@@ -28,6 +41,13 @@ $("#n1").click(function() {
         $("#y1").removeClass("active")
 
         $("#calc1-2").html("")
+
+        if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway_pinned") != "No") {
+            $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+        }
+        else if(localStorage.getItem("giveaway")) {
+            $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
+        }
     }
     updateTotal()
 })
@@ -39,6 +59,14 @@ $("#price1-3").on("change", function() {
     else {
         $("#calc1-3").html("")
     }
+
+    if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway_interactions") != $("#price1-3").val()) {
+        $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+    }
+    else if(localStorage.getItem("giveaway")) {
+        $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
+    }
+
     updateTotal()
 })
 
@@ -55,6 +83,13 @@ $("#price1-4").on("change", function() {
     }
     else if($("#price1-4").val() == 72) {
         $("#calc1-4").html("+<span id='total1-4'>100</span> USD")
+    }
+
+    if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway_duration") != $("#price1-4").val() + "h") {
+        $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+    }
+    else if(localStorage.getItem("giveaway")) {
+        $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
     }
 
     updateTotal()
@@ -96,6 +131,9 @@ $("#btn-giveaway").click(function() {
         localStorage.setItem("giveaway_duration_total", $("#calc1-4").text())
 
         localStorage.setItem("giveaway_total", $("#total-sum").text().split(" ")[0])
+
+
+        $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
         updateUI()
     }
 })
@@ -129,6 +167,8 @@ function updateUI() {
     var price = 0;
 
     if(localStorage.getItem("giveaway")) {
+        $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
+
         list += 
         "<tr class='cart-main'><td>Giveaway</td>" 
         + "<td></td>" 
@@ -163,8 +203,13 @@ function updateUI() {
         total += 1;
         price = BigNumber(price).plus(localStorage.getItem("giveaway_total"))
     }
+    else {
+        $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Add to cart')
+    }
 
     if(localStorage.getItem("promotion")) {
+        $("#btn-promotion").html('<i class="bx bx-check"></i> Added')
+
         list += 
         "<tr class='cart-promotion'><td>Promotion</td>" 
         + "<td></td>" 
@@ -173,6 +218,9 @@ function updateUI() {
 
         total += 1;
         price = BigNumber(price).plus(localStorage.getItem("promotion"))
+    }
+    else {
+        $("#btn-promotion").html('<i class="bx bxs-cart-add"></i> Add to cart')
     }
 
     if(localStorage.getItem("promotion") || localStorage.getItem("giveaway")) {

@@ -23,9 +23,19 @@ $("#send-offer").click(function() {
             price = BigNumber(price).plus(localStorage.getItem("promotion"))
         }
 
-        summary += "Total: " + price + "USD\n\n"
+        summary += 
+        "Total: " + price + "USD\n\n"
+        + $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
 
-        summary += $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
+        localStorage.clear()
+        updateUI();
+
+        $("#contact-input").val("")
+        $("#contact1").prop("checked", true)
+
+        $("#contact1").addClass("active")
+        $("#contact2").removeClass("active")
+        $("#contact3").removeClass("active")
 
         $("#summary").val(summary)
         $("#form").submit()
