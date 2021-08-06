@@ -688,6 +688,10 @@ section {
   margin: 15px 0px
 }
 
+.sum-row {
+  padding-top: 20px;
+}
+
 .pricing .cart-add {
   background: var(--button);
   border: none;
@@ -716,10 +720,9 @@ section {
 }
 
 #total-sum {
-  font-size: 25px;
-  float: right;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 600;
+  color: var(--text-hover);
+  font-size: 32px;
+  font-weight: 700;
 }
 
 

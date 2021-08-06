@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    $("#total-sum").text("Total: " + checkTotal() + " USD")
+    updateTotal()
     updateUI();
 })
 
 $("#price1-1").on("change", function() {
     $("#calc1-1").html("+<span id='total1-1'>" + $("#price1-1").val() + "</span> USD")
-    $("#total-sum").text("Total: " + checkTotal() + " USD")
+    updateTotal()
 })
 
 $("#y1").click(function() {
@@ -17,7 +17,7 @@ $("#y1").click(function() {
 
         $("#calc1-2").html("+<span id='total1-2'>10</span> USD")
     }
-    $("#total-sum").text("Total: " + checkTotal() + " USD")
+    updateTotal()
 })
 
 $("#n1").click(function() {
@@ -29,7 +29,7 @@ $("#n1").click(function() {
 
         $("#calc1-2").html("")
     }
-    $("#total-sum").text("Total: " + checkTotal() + " USD")
+    updateTotal()
 })
 
 $("#price1-3").on("change", function() {
@@ -39,7 +39,7 @@ $("#price1-3").on("change", function() {
     else {
         $("#calc1-3").html("")
     }
-    $("#total-sum").text("Total: " + checkTotal() + " USD")
+    updateTotal()
 })
 
 $("#price1-4").on("change", function() {
@@ -57,7 +57,7 @@ $("#price1-4").on("change", function() {
         $("#calc1-4").html("+<span id='total1-4'>100</span> USD")
     }
 
-    $("#total-sum").text("Total: " + checkTotal() + " USD")
+    updateTotal()
 })
 
 $("#cart-close").click(function() {
@@ -65,7 +65,7 @@ $("#cart-close").click(function() {
     updateUI();
 })
 
-function checkTotal(){
+function updateTotal(){
     var sum = 0
     if($("#total1-1").length != 0) {
         sum = BigNumber(sum).plus($("#total1-1").text())
@@ -79,7 +79,7 @@ function checkTotal(){
     if($("#total1-4").length != 0) {
         sum = BigNumber(sum).plus($("#total1-4").text())
     }
-    return sum
+    $("#total-sum").text(sum + " USD")
 }
 
 $("#btn-giveaway").click(function() {
@@ -136,7 +136,7 @@ function updateUI() {
         + "<td><span class='cart-close-single' id='giveaway-close'><i class='bx bx-x'></i></span></td></tr>"
         
         + "<tr class='cart-details'><td>Amount</td>"
-        + "<td>" + localStorage.getItem("giveaway") + " USD</td>" 
+        + "<td>$" + localStorage.getItem("giveaway") + "</td>" 
         + "<td>+" + localStorage.getItem("giveaway") + " USD</td>" 
         + "<td></td></tr>"
 
