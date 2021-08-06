@@ -187,7 +187,7 @@ $("#submit-q").click(function() {
     }
 });
 
-successMessage() {
+async function successMessage() {
     $("#success").modal('show')
     await delay(5000)
     $("#success").modal('hide')
