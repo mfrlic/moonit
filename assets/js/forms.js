@@ -1,10 +1,21 @@
 $("#send-offer").click(function() {
     if(localStorage.getItem("promotion") && $("#contact-input").val() != "" || localStorage.getItem("giveaway") && $("#contact-input").val() != "") {
         var price = 0;
-        var summary = "Order summary\n\n";
+        var title = "Order Received";
+
+        var summary = "";
+        var summary_raw = ""
 
         if(localStorage.getItem("giveaway")) {
             summary +=
+            "<h4>Giveaway</h4>" 
+            + "Amount: <i>" + localStorage.getItem("giveaway") + " USD (+" + localStorage.getItem("giveaway") + " USD)</i><br>" 
+            + "Pinned: <i>" + localStorage.getItem("giveaway_pinned") + " (" + localStorage.getItem("giveaway_pinned_total") + ")</i><br>" 
+            + "Interactions: <i>" + localStorage.getItem("giveaway_interactions") + " (" + localStorage.getItem("giveaway_interactions_total") + ")</i><br>" 
+            + "Duration: <i>" + localStorage.getItem("giveaway_duration") + " (" + localStorage.getItem("giveaway_duration_total") + ")</i><br>" 
+            + "Giveaway total: <i>" + localStorage.getItem("giveaway_total") + " USD</i><br><br>";
+
+            summary_raw +=
             "Giveaway\n" 
             + "Amount: " + localStorage.getItem("giveaway") + " USD (+" + localStorage.getItem("giveaway") + " USD)\n" 
             + "Pinned: " + localStorage.getItem("giveaway_pinned") + " (" + localStorage.getItem("giveaway_pinned_total") + ")\n" 
@@ -17,6 +28,10 @@ $("#send-offer").click(function() {
 
         if(localStorage.getItem("promotion")) {
             summary += 
+            "<h4>Promotion</h4>" 
+            + "Promotion total: <i>" + localStorage.getItem("promotion") + " USD</i><br>" 
+
+            summary_raw += 
             "Promotion\n" 
             + "Promotion total: " + localStorage.getItem("promotion") + " USD\n\n" 
 
@@ -24,6 +39,10 @@ $("#send-offer").click(function() {
         }
 
         summary += 
+        "<h5>Total: <b>" + price + "USD</b></h5>"
+        + $("#contact1").is(":checked") ? "Email: <i>" + $("#contact-input").val() + "</i>" : ($("#contact2").is(":checked") ? "Telegram: <i>" + $("#contact-input").val() + "</i>" : "Twitter: <i>" + $("#contact-input").val() + "</i>")
+
+        summary_raw += 
         "Total: " + price + "USD\n\n"
         + $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
 
@@ -33,7 +52,9 @@ $("#send-offer").click(function() {
             async: false,
             cache: false,
             data: {
-                summary: summary
+                title: title,
+                summary: summary,
+                summary_raw: summary_raw
             },
 
             success: function(response) {
