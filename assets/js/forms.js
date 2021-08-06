@@ -191,6 +191,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 async function successMessage() {
     $("#success").modal('show')
-    await delay(3000);
+    await delay(2000);
     $("#success").modal('hide')
 }
