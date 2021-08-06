@@ -27,8 +27,8 @@ $("#send-offer").click(function() {
 
         summary += $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
 
-        $("#order-summary").val(summary)
-        $("#cart-form").submit()
+        $("#summary").val(summary)
+        $("#form").submit()
     }
 })
 
@@ -47,8 +47,8 @@ $("#submit-p").click(function() {
             + "\nMessage:\n"
             + $("#message").val()
 
-            $("#p-summary").val(summary)
-            $("#p-form").submit()
+            $("#summary").val(summary)
+            $("#form").submit()
         }
     }
 })
@@ -60,7 +60,7 @@ $("#submit-q").click(function() {
         + "\nQuestion:\n"
         + $("#question").val()
 
-        $("#q-summary").val(summary)
-        $("#q-form").submit()
+        $("#summary").val(summary)
+        $("#form").submit()
     }
 })

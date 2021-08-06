@@ -178,6 +178,9 @@ function updateUI() {
     if(localStorage.getItem("promotion") || localStorage.getItem("giveaway")) {
         $("#cart-total").text("Total: " + price + " USD")
     }
+    else {
+        $("#cart-total").text("")
+    }
 
     if (list == "<tr><th></th><th></th><th></th><th></th></tr>\n") {
         list = "<i>Your cart is empty.</i>";
@@ -190,6 +193,12 @@ function updateUI() {
     }
     else {
         $("#btn-cart").html("<i class='bx bx-cart'></i> <span class='cart-quantity'>" + total + "</span>")
+        if(total == 1) {
+            $("#btn-cart .cart-quantity").css("padding", "0.2px 5px")
+        }
+        else if(total == 2) {
+            $("#btn-cart .cart-quantity").css("padding", "0.2px 4px")
+        }
     }
     }
     else {
