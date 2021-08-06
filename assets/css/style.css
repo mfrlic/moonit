@@ -1022,10 +1022,12 @@ section {
 #success .modal-dialog, #success .modal-content, #success .modal-body {
   background-color: transparent;
   border: none;
+  display: flex;
+  align-items: center;
 }
 
 #success img {
-  width: 100%;
+  width: 50%;
 }
 
 
