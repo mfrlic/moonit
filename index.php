@@ -40,7 +40,7 @@ if(isset($_POST["summary"])) {
 
     try {
         $mail->send();
-        echo "Message has been sent successfully";
+        echo "<script>alert('jebemu mater vise')</script>";
     } catch (Exception $e) {
         echo "Mailer Error: " . $mail->ErrorInfo;
     }
