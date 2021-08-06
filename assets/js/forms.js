@@ -69,7 +69,7 @@ $("#send-offer").click(function() {
 
                 $("#cart").modal('hide')
 
-                $("#success").modal('show')
+                successMessage()
 
                 return response;
             },
@@ -185,4 +185,10 @@ $("#submit-q").click(function() {
             }
         })
     }
-})
+});
+
+successMessage() {
+    $("#success").modal('show')
+    await delay(5000)
+    $("#success").modal('hide')
+}
