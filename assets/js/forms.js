@@ -37,7 +37,7 @@ $("#send-offer").click(function() {
             price = BigNumber(price).plus(localStorage.getItem("promotion"))
         }
 
-        summary += "<br><h2>Total: " + price + " USD</h2><br><br>"
+        summary += "<br><h2>Total: " + price + " USD</h2>"
         summary += $("#contact1").is(":checked") ? "Email: <i>" + $("#contact-input").val() + "</i>" : ($("#contact2").is(":checked") ? "Telegram: <i>" + $("#contact-input").val() + "</i>" : "Twitter: <i>" + $("#contact-input").val() + "</i>")
 
         summary_raw += "Total: " + price + " USD\n\n"
