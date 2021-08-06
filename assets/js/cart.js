@@ -6,7 +6,7 @@ $(document).ready(function() {
 $("#price1-1").on("change", function() {
     $("#calc1-1").html("+<span id='total1-1'>" + $("#price1-1").val() + "</span> USD")
     if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway") != $("#price1-1").val()) {
-        $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+        $("#btn-giveaway").html('<i class="bx bxs-cart-download"></i> Update cart')
     }
     else if(localStorage.getItem("giveaway")) {
         $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
@@ -24,7 +24,7 @@ $("#y1").click(function() {
         $("#calc1-2").html("+<span id='total1-2'>10</span> USD")
 
         if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway_pinned") != "Yes") {
-            $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+            $("#btn-giveaway").html('<i class="bx bxs-cart-download"></i> Update cart')
         }
         else if(localStorage.getItem("giveaway")) {
             $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
@@ -43,7 +43,7 @@ $("#n1").click(function() {
         $("#calc1-2").html("")
 
         if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway_pinned") != "No") {
-            $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+            $("#btn-giveaway").html('<i class="bx bxs-cart-download"></i> Update cart')
         }
         else if(localStorage.getItem("giveaway")) {
             $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
@@ -61,7 +61,7 @@ $("#price1-3").on("change", function() {
     }
 
     if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway_interactions") != $("#price1-3").val()) {
-        $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+        $("#btn-giveaway").html('<i class="bx bxs-cart-download"></i> Update cart')
     }
     else if(localStorage.getItem("giveaway")) {
         $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
@@ -86,7 +86,7 @@ $("#price1-4").on("change", function() {
     }
 
     if(localStorage.getItem("giveaway") && localStorage.getItem("giveaway_duration") != $("#price1-4").val() + "h") {
-        $("#btn-giveaway").html('<i class="bx bxs-cart-add"></i> Update cart')
+        $("#btn-giveaway").html('<i class="bx bxs-cart-download"></i> Update cart')
     }
     else if(localStorage.getItem("giveaway")) {
         $("#btn-giveaway").html('<i class="bx bx-check"></i> Added')
