@@ -846,11 +846,11 @@ section {
   top: -20px;
   transform: translateY(0);
   transition: transform 200ms;
-  width: 76px;
+  width: 73px;
 }
 
 .contact .cut-short {
-  width: 50px;
+  width: 52px;
 }
 
 .contact .input:focus ~ .cut,
@@ -860,7 +860,7 @@ section {
 }
 
 .contact .placeholder {
-  color: #65657b;
+  color: #ffffff50;
   left: 20px;
   line-height: 14px;
   pointer-events: none;
@@ -876,7 +876,7 @@ section {
 }
 
 .contact .input:not(:placeholder-shown) ~ .placeholder {
-  color: #808097;
+  color: #ffffff50;
 }
 
 .contact .input:focus ~ .placeholder {
@@ -948,6 +948,13 @@ section {
   background-color: var(--button-hover);
 }
 
+.invalid {
+  border: 1px solid rgba(255, 0, 0, 0.5) !important;
+}
+
+#opt-none {
+  color: rgba(255, 0, 0, 0.5);
+}
 
 @-webkit-keyframes animate-loading {
   0% {

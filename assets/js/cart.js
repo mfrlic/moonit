@@ -167,7 +167,7 @@ function updateUI() {
     var price = 0;
 
     if(localStorage.getItem("giveaway")) {
-        $("#btn-giveaway").html('<i class="bx bx-check"></i> Added to cart')
+        checkButton()
 
         list += 
         "<tr class='cart-main'><td>Giveaway</td>" 
@@ -260,5 +260,14 @@ function CheckBrowser() {
     } 
     else {
         return false;
+    }
+}
+
+function checkButton() {
+    if(localStorage.getItem("giveaway") != $("#price1-1").val() || localStorage.getItem("giveaway_interactions") != $("#price1-3").val() || localStorage.getItem("giveaway_duration") != $("#price1-4").val() + "h" || $("#y1-radio").is(":checked") && localStorage.getItem("giveaway_pinned") != "Yes" || $("#n1-radio").is(":checked") && localStorage.getItem("giveaway_pinned") != "No") {
+        $("#btn-giveaway").html('<i class="bx bxs-cart-download"></i> Update cart')
+    }
+    else if(localStorage.getItem("giveaway")) {
+        $("#btn-giveaway").html('<i class="bx bx-check"></i> Added to cart')
     }
 }

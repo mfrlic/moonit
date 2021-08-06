@@ -78,6 +78,17 @@ $("#send-offer").click(function() {
             }
         })
     }
+    else if($("#contact-input").val() == "" || !email.test($("#contact-input").val().toLowerCase()) && $("#contact1").hasClass("active")) {
+        $("#contact-input").addClass("invalid")
+    }
+})
+
+$("#contact-input").focus(function() {
+    $("#contact-input").removeClass("invalid")
+})
+
+$("#contact1, #contact2, #contact3").click(function() {
+    $("#contact-input").removeClass("invalid")
 })
 
 $("#submit-p").click(function() {
@@ -149,11 +160,33 @@ $("#submit-p").click(function() {
             })
         }
     }
+    else {
+        if($("#email-p").val() == "" || !email.test($("#email-p").val().toLowerCase())) {
+            $("#email-p").addClass("invalid")
+        }
+        if(!$("#checkbox1").is(":checked") && !$("#checkbox2").is(":checked") && !$("#checkbox3").is(":checked") && !$("#checkbox4").is(":checked") && !$("#checkbox5").is(":checked") && !$("#checkbox6").is(":checked")) {
+            $("#opt-none").removeClass("d-none")
+        }
+        if($("#message").val() == "") {
+            $("#message").addClass("invalid")
+        }
+    }
+})
+
+$("#email-p").focus(function() {
+    $("#email-p").removeClass("invalid")
+})
+
+$("#message").focus(function() {
+    $("#message").removeClass("invalid")
+})
+
+$("#opt1, #opt2, #opt3, #opt4, #opt5, #opt6").click(function() {
+    $("#opt-none").addClass("d-none")
 })
 
 $("#submit-q").click(function() {
-    if($("#email-q").val() != "" && $("#question").val() != "") {
-
+    if($("#email-q").val() != "" && $("#question").val() != "" && email.test($("#email-q").val().toLowerCase())) {
         var summary = 
         "Email: <b>" + $("#email-q").val() + "</b><br><br>"
         + "Question:<br><i>"
@@ -189,8 +222,36 @@ $("#submit-q").click(function() {
             }
         })
     }
+    else {
+        if($("#email-q").val() == "" || !email.test($("#email-q").val().toLowerCase())) {
+            $("#email-q").addClass("invalid")
+        }
+        if($("#question").val() == "") {
+            $("#question").addClass("invalid")
+        }
+    }
 });
 
+$("#email-q").focus(function() {
+    $("#email-q").removeClass("invalid")
+})
+
+$("#question").focus(function() {
+    $("#question").removeClass("invalid")
+})
+
+$("#btn-q").click(function() {
+    $("#email-p").removeClass("invalid")
+    $("#message").removeClass("invalid")
+    $("#opt-none").addClass("d-none")
+})
+
+$("#btn-p").click(function() {
+    $("#email-q").removeClass("invalid")
+    $("#question").removeClass("invalid")
+})
+
+const email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 async function successMessage() {
