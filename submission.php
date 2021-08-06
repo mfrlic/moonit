@@ -32,9 +32,9 @@ if(isset($_POST["summary"])) {
 
     $mail->isHTML(true);
 
-    $mail->Subject = "A new message";
+    $mail->Subject = $_POST["title"];
     $mail->Body = $_POST["summary"];
-    $mail->AltBody = $_POST["summary"];
+    $mail->AltBody = $_POST["summary_raw"];
 
     $mail->send();
 }

@@ -63,8 +63,22 @@ $("#send-offer").click(function() {
 $("#submit-p").click(function() {
     if($("#email-p").val() != "" && $("#message").val() != "") {
         if($("#checkbox1").is(":checked") || $("#checkbox2").is(":checked") || $("#checkbox3").is(":checked") || $("#checkbox4").is(":checked") || $("#checkbox5").is(":checked") || $("#checkbox6").is(":checked")) {
+            var title = "Position application"
+
             var summary = 
-            "Position application\n\nEmail: " + $("#email-p").val() + "\n\n"
+            "Email: <b>" + $("#email-p").val() + "</b><br>"
+            + "Interested in:<br>"
+            + ($("#checkbox1").is(":checked") ? "<b>Twitter</b><br>" : "")
+            + ($("#checkbox2").is(":checked") ? "<b>Reddit</b><br>" : "")
+            + ($("#checkbox3").is(":checked") ? "<b>4chan</b><br>" : "")
+            + ($("#checkbox4").is(":checked") ? "<b>Telegram</b><br>" : "")
+            + ($("#checkbox5").is(":checked") ? "<b>TikTok</b><br>" : "")
+            + ($("#checkbox6").is(":checked") ? "<b>Youtube</b><br>" : "")
+            + "<br>Message:<br><i>"
+            + $("#message").val() + "</i>"
+
+            var summary_raw = 
+            "Email: " + $("#email-p").val() + "\n\n"
             + "Interested in:\n"
             + ($("#checkbox1").is(":checked") ? "Twitter\n" : "")
             + ($("#checkbox2").is(":checked") ? "Reddit\n" : "")
@@ -75,13 +89,17 @@ $("#submit-p").click(function() {
             + "\nMessage:\n"
             + $("#message").val()
 
+            var summary = 
+
             $.ajax ({
                 url: "submission.php",
                 type: "POST",
                 async: false,
                 cache: false,
                 data: {
-                    summary: summary
+                    title: title,
+                    summary: summary,
+                    summary_raw: summary_raw
                 },
     
                 success: function(response) {
