@@ -1,7 +1,6 @@
 $("#send-offer").click(function() {
     if(localStorage.getItem("promotion") && $("#contact-input").val() != "" || localStorage.getItem("giveaway") && $("#contact-input").val() != "") {
         var price = 0;
-        var title = "Order Received";
 
         var summary = "";
         var summary_raw = ""
@@ -38,13 +37,11 @@ $("#send-offer").click(function() {
             price = BigNumber(price).plus(localStorage.getItem("promotion"))
         }
 
-        summary += 
-        "Total: <b>" + price + "USD</b><br><br>"
-        + ($("#contact1").is(":checked") ? "Email: <i>" + $("#contact-input").val() + "</i>" : ($("#contact2").is(":checked") ? "Telegram: <i>" + $("#contact-input").val() + "</i>" : "Twitter: <i>" + $("#contact-input").val() + "</i>"))
+        summary += "Total: <b>" + price + " USD</b><br><br>"
+        summary += $("#contact1").is(":checked") ? "Email: <i>" + $("#contact-input").val() + "</i>" : ($("#contact2").is(":checked") ? "Telegram: <i>" + $("#contact-input").val() + "</i>" : "Twitter: <i>" + $("#contact-input").val() + "</i>")
 
-        summary_raw += 
-        "Total: " + price + "USD\n\n"
-        + $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
+        summary_raw += "Total: " + price + " USD\n\n"
+        summary_raw += $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
 
         $.ajax ({
             url: "submission.php",
@@ -52,7 +49,7 @@ $("#send-offer").click(function() {
             async: false,
             cache: false,
             data: {
-                title: title,
+                title: "Order Received",
                 summary: summary,
                 summary_raw: summary_raw
             },
@@ -84,7 +81,6 @@ $("#send-offer").click(function() {
 $("#submit-p").click(function() {
     if($("#email-p").val() != "" && $("#message").val() != "") {
         if($("#checkbox1").is(":checked") || $("#checkbox2").is(":checked") || $("#checkbox3").is(":checked") || $("#checkbox4").is(":checked") || $("#checkbox5").is(":checked") || $("#checkbox6").is(":checked")) {
-            var title = "Position application"
 
             var summary = 
             "Email: <b>" + $("#email-p").val() + "</b><br><br>"
@@ -110,15 +106,13 @@ $("#submit-p").click(function() {
             + "\nMessage:\n"
             + $("#message").val()
 
-            var summary = 
-
             $.ajax ({
                 url: "submission.php",
                 type: "POST",
                 async: false,
                 cache: false,
                 data: {
-                    title: title,
+                    title: "Position application",
                     summary: summary,
                     summary_raw: summary_raw
                 },
@@ -155,7 +149,6 @@ $("#submit-p").click(function() {
 
 $("#submit-q").click(function() {
     if($("#email-q").val() != "" && $("#question").val() != "") {
-        var title = "General question"
 
         var summary = 
         "Email: <b>" + $("#email-q").val() + "</b><br><br>"
@@ -173,7 +166,7 @@ $("#submit-q").click(function() {
             async: false,
             cache: false,
             data: {
-                title: title,
+                title: "General question",
                 summary: summary,
                 summary_raw: summary_raw
             },
