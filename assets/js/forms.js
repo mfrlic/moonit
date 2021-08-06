@@ -69,6 +69,8 @@ $("#send-offer").click(function() {
 
                 $("#cart").modal('hide')
 
+                $("#success").modal('show')
+
                 return response;
             },
             error: function() {
