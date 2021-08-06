@@ -34,9 +34,7 @@ $("#send-offer").click(function() {
             type: "POST",
             async: false,
             cache: false,
-            data: {
-                summary: summary
-            },
+            data: $("#form").serialize(),
 
             success: function(response) {
                 alert(response);
