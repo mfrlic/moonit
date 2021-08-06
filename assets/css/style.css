@@ -1019,6 +1019,11 @@ section {
 }
 
 
+#success .modal-dialog, #success .modal-content, #success .modal-body {
+  background-color: transparent;
+}
+
+
 #footer {
   color: var(--text);
   font-size: 14px;
