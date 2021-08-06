@@ -39,7 +39,7 @@ $("#send-offer").click(function() {
         }
 
         summary += 
-        "Total: <b>" + price + "USD</b>"
+        "Total: <b>" + price + "USD</b><br><br>"
         + $("#contact1").is(":checked") ? "Email: <i>" + $("#contact-input").val() + "</i>" : ($("#contact2").is(":checked") ? "Telegram: <i>" + $("#contact-input").val() + "</i>" : "Twitter: <i>" + $("#contact-input").val() + "</i>")
 
         summary_raw += 
