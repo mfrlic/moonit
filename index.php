@@ -1,6 +1,6 @@
 <?php 
 
-// include_once("home.html");
+include_once("home.html");
 require_once "assets/php/autoload.php";
 
 require("./assets/php/phpmailer/phpmailer/src/PHPMailer.php");
