@@ -138,7 +138,9 @@ $("#submit-p").click(function() {
                     $("#checkbox6").prop("checked", false)
 
                     $("#message").val("")
-    
+
+                    successMessage()
+
                     return response;
                 },
                 error: function() {
@@ -177,6 +179,8 @@ $("#submit-q").click(function() {
         
                 $("#email-q").val("")
                 $("#question").val("")
+
+                successMessage()
 
                 return response;
             },
