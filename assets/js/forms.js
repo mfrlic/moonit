@@ -39,8 +39,20 @@ $("#send-offer").click(function() {
 
         $("#summary").val(summary)
 
-        $.post('index.php', $('#form').serialize(), function(data) {
-            alert("sent")
+        $.ajax ({
+            url: "index.php",
+            type: "POST",
+            async: false,
+            cache: false,
+            data: summary,
+
+            success: function(response) {
+                alert(response);
+                return response;        
+            },
+            error: function() {
+                alert('ajax error');
+            }
         })
     }
 })
