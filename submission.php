@@ -36,11 +36,6 @@ if(isset($_POST["summary"])) {
     $mail->Body = $_POST["summary"];
     $mail->AltBody = $_POST["summary"];
 
-    try {
-        $mail->send();
-        echo "<script>alert('jebemu mater vise')</script>";
-    } catch (Exception $e) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-    }
+    $mail->send();
 }
 ?>

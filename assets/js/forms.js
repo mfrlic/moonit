@@ -27,8 +27,6 @@ $("#send-offer").click(function() {
         "Total: " + price + "USD\n\n"
         + $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
 
-        $("#summary").val(summary)
-
         $.ajax ({
             url: "submission.php",
             type: "POST",
@@ -39,8 +37,6 @@ $("#send-offer").click(function() {
             },
 
             success: function(response) {
-                alert(response);
-
                 localStorage.clear()
                 updateUI();
         
@@ -51,12 +47,14 @@ $("#send-offer").click(function() {
                 $("#contact2").removeClass("active")
                 $("#contact3").removeClass("active")
 
-                // $("#summary").val("")
+                $("#summary").val("")
 
-                return response;        
+                $("#cart").hide()
+
+                return response;
             },
             error: function() {
-                alert('ajax error');
+                alert('Please try again');
             }
         })
     }
@@ -77,8 +75,34 @@ $("#submit-p").click(function() {
             + "\nMessage:\n"
             + $("#message").val()
 
-            $("#summary").val(summary)
-            $("#form").submit()
+            $.ajax ({
+                url: "submission.php",
+                type: "POST",
+                async: false,
+                cache: false,
+                data: {
+                    summary: summary
+                },
+    
+                success: function(response) {
+            
+                    $("#email-p").val("")
+
+                    $("#opt1").prop("checked", false)
+                    $("#opt2").prop("checked", false)
+                    $("#opt3").prop("checked", false)
+                    $("#opt4").prop("checked", false)
+                    $("#opt5").prop("checked", false)
+                    $("#opt6").prop("checked", false)
+
+                    $("#message").val("")
+    
+                    return response;
+                },
+                error: function() {
+                    alert('Please try again.');
+                }
+            })
         }
     }
 })
@@ -90,7 +114,25 @@ $("#submit-q").click(function() {
         + "\nQuestion:\n"
         + $("#question").val()
 
-        $("#summary").val(summary)
-        $("#form").submit()
+        $.ajax ({
+            url: "submission.php",
+            type: "POST",
+            async: false,
+            cache: false,
+            data: {
+                summary: summary
+            },
+
+            success: function(response) {
+        
+                $("#email-q").val("")
+                $("#question").val("")
+
+                return response;
+            },
+            error: function() {
+                alert('Please try again.');
+            }
+        })
     }
 })
