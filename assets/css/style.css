@@ -1026,12 +1026,12 @@ section {
 }
 
 #success img {
-  width: 30%;
+  width: 20%;
 }
 
 @media (max-width: 991px) {
   #success img {
-    width: 40%;
+    width: 25%;
   }
 }
 
