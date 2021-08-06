@@ -92,7 +92,7 @@ $("#btn-giveaway").click(function() {
         localStorage.setItem("giveaway_interactions", $("#price1-3").val())
         localStorage.setItem("giveaway_interactions_total", $("#price1-3").val() != 1 ? $("#calc1-3").text() : "-")
 
-        localStorage.setItem("giveaway_duration", $("#price1-4").val() + ($("#h1-radio").is(":checked") ? "h" : "d"))
+        localStorage.setItem("giveaway_duration", $("#price1-4").val() + "h")
         localStorage.setItem("giveaway_duration_total", $("#calc1-4").text())
 
         localStorage.setItem("giveaway_total", $("#total-sum").text().split(" ")[1])
