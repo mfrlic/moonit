@@ -1,6 +1,5 @@
 <?php 
 
-include_once("home.html");
 require_once "assets/php/autoload.php";
 
 use assets\php\PHPMailer\PHPMailer;
