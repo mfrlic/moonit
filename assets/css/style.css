@@ -1022,8 +1022,6 @@ section {
 #success .modal-dialog, #success .modal-content, #success .modal-body {
   background-color: transparent;
   border: none;
-  display: flex;
-  align-items: center;
   text-align: center;
 }
 
