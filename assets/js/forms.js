@@ -30,7 +30,7 @@ $("#send-offer").click(function() {
         $("#summary").val(summary)
 
         $.ajax ({
-            url: "index.php",
+            url: "submission.php",
             type: "POST",
             async: false,
             cache: false,
