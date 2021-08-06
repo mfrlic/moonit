@@ -49,6 +49,8 @@ $("#send-offer").click(function() {
                 $("#contact2").removeClass("active")
                 $("#contact3").removeClass("active")
 
+                // $("#summary").val("")
+
                 return response;        
             },
             error: function() {
