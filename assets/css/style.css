@@ -468,7 +468,7 @@ section {
   background: rgba(221, 0, 0, 0.3);
   color: rgb(180, 0, 0);
   font-size: 22px;
-  padding: 3px 6px 1px 6px;
+  padding: 4px 5.5px 0px 6.5px;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
@@ -787,6 +787,12 @@ section {
   position: relative;
   height: 85%;
   width: 100%;
+}
+
+@media (max-width: 991px) {
+  .contact .textarea-container {
+    height: 200px;
+  }
 }
 
 .contact .ic1 {
