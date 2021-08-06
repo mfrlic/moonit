@@ -1,5 +1,5 @@
 $("#send-offer").click(function() {
-    if(localStorage.getItem("promotion") || localStorage.getItem("giveaway") && $("#contact-input").val() != "") {
+    if(localStorage.getItem("promotion") && $("#contact-input").val() != "" || localStorage.getItem("giveaway") && $("#contact-input").val() != "") {
         var price = 0;
         var summary = "Order summary\n\n";
 

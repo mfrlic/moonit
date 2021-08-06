@@ -367,7 +367,7 @@ section {
 }
 
 .about .icon-box:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .about .icon-box:hover .title a {
@@ -444,7 +444,7 @@ section {
 #cart table {
   width: 100%;
   text-align: center;
-  margin: 20px 0px 40px 0px;
+  margin: 20px 0px 25px 0px;
 }
 
 #cart .cart-close {
@@ -494,7 +494,8 @@ section {
 }
 
 #cart .contact-container {
-  margin-top: 5px;
+  margin-top: 10px;
+  position: relative;
 }
 
 #cart .btn-contact {
@@ -522,6 +523,7 @@ section {
 
 #cart #contact-input {
   width: 62%;
+  position: absolute;
   margin-left: 20px;
   background-color: var(--transparent);
   border-radius: 12px;
