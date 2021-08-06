@@ -41,7 +41,7 @@ $("#send-offer").click(function() {
         summary += $("#contact1").is(":checked") ? "Email: <i>" + $("#contact-input").val() + "</i>" : ($("#contact2").is(":checked") ? "Telegram: <i>" + $("#contact-input").val() + "</i>" : "Twitter: <i>" + $("#contact-input").val() + "</i>")
 
         summary_raw += "Total: " + price + " USD\n\n"
-        summary_raw += $("#contact1").is(":checked") ? "Email: " + $("#contact-input").val() : ($("#contact2").is(":checked") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
+        summary_raw += $("#contact1").hasClass("active") ? "Email: " + $("#contact-input").val() : ($("#contact2").hasClass("active") ? "Telegram: " + $("#contact-input").val() : "Twitter: " + $("#contact-input").val())
 
         $.ajax ({
             url: "submission.php",
