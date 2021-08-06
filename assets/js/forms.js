@@ -70,7 +70,7 @@ $("#send-offer").click(function() {
 
                 $("#summary").val("")
 
-                $("#cart").hide()
+                $("#cart").modal('hide')
 
                 return response;
             },
