@@ -38,7 +38,7 @@
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-        <div style="position:relative; padding: 0px; margin-left: 20px;">
+        <div class="btn-cart-container">
           <a id="btn-cart" data-bs-toggle="modal" data-bs-target="#cart"><i class="bx bx-cart"></i></a>
         </div>
       </nav>
@@ -135,20 +135,22 @@
                     <div class="details">
                       <div class="details-row">
                         Giveaway amount:
-                        <select id="price1-1">
-                          <option value="50">$50</option>
-                          <option value="100">$100</option>
-                          <option value="200">$200</option>
-                          <option value="500">$500</option>
-                          <option value="1000">$1000</option>
-                        </select> 
-                        <span id="calc1-1">+<span id="total1-1">50</span> USD</span>
+                        <div class="d-block d-lg-inline">
+                          <select id="price1-1">
+                            <option value="50">$50</option>
+                            <option value="100">$100</option>
+                            <option value="200">$200</option>
+                            <option value="500">$500</option>
+                            <option value="1000">$1000</option>
+                          </select> 
+                          <span id="calc1-1">+<span id="total1-1">50</span> USD</span>
+                        </div>
                       </div>
 
                       <p class="description">* Amount the giveaway winner gets</p>
 
                       <div class="details-row">
-                        Pin the tweet?<button id="y1" class="price-radio">Yes</button><button id="n1" class="price-radio active">No</button> <span id="calc1-2"></span>
+                        Pin the tweet? <div class="d-block d-lg-inline"><button id="y1" class="price-radio">Yes</button><button id="n1" class="price-radio active">No</button> <span id="calc1-2"></span></div>
                         <input id="y1-radio" class="d-none" name="radio1-1" type="radio">
                         <input checked id="n1-radio" class="d-none" name="radio1-1" type="radio">
                       </div>
@@ -157,32 +159,36 @@
 
                       <div class="details-row">
                         Number of actions: 
-                        <select id="price1-3">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select> 
-                        <span id="calc1-3"></span>
+                        <div class="d-block d-lg-inline">
+                          <select id="price1-3">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select> 
+                          <span id="calc1-3"></span>
+                        </div>
                       </div>
 
                       <p class="description">* Number of actions a user has to perform to enter the giveaway. for example: follow your Twitter and join your Telegram chat - 2 actions</p>
 
                       <div class="details-row">
                         Giveaway duration: 
-                        <select id="price1-4">
-                          <option value="12">12h</option>
-                          <option value="24">24h</option>
-                          <option value="48">48h</option>
-                          <option value="72">72h</option>
-                        </select> 
-                        <span id="calc1-4">+<span id="total1-4">25</span> USD</span>
+                        <div class="d-block d-lg-inline">
+                          <select id="price1-4">
+                            <option value="12">12h</option>
+                            <option value="24">24h</option>
+                            <option value="48">48h</option>
+                            <option value="72">72h</option>
+                          </select> 
+                          <span id="calc1-4">+<span id="total1-4">25</span> USD</span>
+                        </div>
                       </div>
 
 
                       <div class="details-row">
-                        <span style="font-size: 25px; float: inherit;" id="total-sum">Total: 0 USD</span>
+                        <span id="total-sum"></span>
                       </div><br>
 
                       <div class="details-row text-center">

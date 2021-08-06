@@ -42,7 +42,7 @@
   --transparent: rgba(255, 255, 255, 0.08);
   --text: #fff;
   --text-hover: #cac9c9;
-  --subtext: rgb(201, 201, 201);
+  --subtext: rgb(158, 158, 158);
   --title: rgb(201, 201, 201);
   --button: #cacaca;
   --button-hover: #adadad;
@@ -222,68 +222,18 @@ a:hover {
   color: var(--text-hover);
 }
 
-.mobile-nav-toggle {
-  color: var(--text);
-  font-size: 28px;
-  cursor: pointer;
-  display: none;
-  line-height: 0;
-  transition: 0.5s;
-}
-
-.mobile-nav-toggle.bi-x {
-  color: var(--text);
+.navbar .btn-cart-container {
+  position: relative; 
+  padding: 0px; 
+  margin-left: 20px;
 }
 
 @media (max-width: 991px) {
-  .mobile-nav-toggle {
-    display: block;
-  }
   .navbar ul {
     display: none;
   }
 }
 
-.navbar-mobile {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(3, 6, 13, 0.9);
-  transition: 0.3s;
-  z-index: 999;
-}
-
-.navbar-mobile .mobile-nav-toggle {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-.navbar-mobile ul {
-  display: block;
-  position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 15px;
-  left: 15px;
-  padding: 10px 0;
-  background-color: var(--primary);
-  overflow-y: auto;
-  transition: 0.3s;
-}
-
-.navbar-mobile a {
-  padding: 10px 20px;
-  font-size: 15px;
-  color: var(--text);
-}
-
-.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: var(--text-hover);
-}
 
 #home {
   height: 100%;
@@ -650,12 +600,12 @@ section {
 
 .pricing .promo .subtitle {
   padding: 0px 50px;
-  color: gray;
+  color: var(--subtext);
   font-size: 18px;
 }
 
 .pricing .promo .description {
-  color: gray; 
+  color: var(--subtext); 
   text-decoration: italic;
 }
 
@@ -751,6 +701,7 @@ section {
 }
 
 #total-sum {
+  font-size: 25px;
   float: right;
   color: rgba(255, 255, 255, 0.8);
   font-weight: 600;
