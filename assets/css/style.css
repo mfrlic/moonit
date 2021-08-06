@@ -405,14 +405,14 @@ section {
 #btn-cart {
   background-color: var(--button);
   color: var(--button-text);
-  padding: 18px 6px 18px 0px;
+  padding: 20px 6px 20px 0px;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
 }
 
 #btn-cart i {
-  font-size: 26px;
+  font-size: 30px;
 }
 
 #btn-cart:hover {
