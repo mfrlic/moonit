@@ -29,33 +29,33 @@ $("#send-offer").click(function() {
 
         $("#summary").val(summary)
 
-        $("#form").submit(function() {
-            $.ajax ({
-                url: "index.php",
-                type: "POST",
-                async: false,
-                cache: false,
-                data: $("#form").serialize(),
-    
-                success: function(response) {
-                    alert(response);
-    
-                    localStorage.clear()
-                    updateUI();
-            
-                    $("#contact-input").val("")
-                    $("#contact1").prop("checked", true)
-            
-                    $("#contact1").addClass("active")
-                    $("#contact2").removeClass("active")
-                    $("#contact3").removeClass("active")
-    
-                    return response;        
-                },
-                error: function() {
-                    alert('ajax error');
-                }
-            })
+        $.ajax ({
+            url: "index.php",
+            type: "POST",
+            async: false,
+            cache: false,
+            data: {
+                summary: summary
+            },
+
+            success: function(response) {
+                alert(response);
+
+                localStorage.clear()
+                updateUI();
+        
+                $("#contact-input").val("")
+                $("#contact1").prop("checked", true)
+        
+                $("#contact1").addClass("active")
+                $("#contact2").removeClass("active")
+                $("#contact3").removeClass("active")
+
+                return response;        
+            },
+            error: function() {
+                alert('ajax error');
+            }
         })
     }
 })
