@@ -1028,7 +1028,13 @@ section {
 }
 
 #success img {
-  width: 100%;
+  width: 70%;
+}
+
+@media (max-width: 991px) {
+  #success img {
+    width: 80%;
+  }
 }
 
 
