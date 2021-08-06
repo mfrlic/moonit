@@ -95,7 +95,7 @@ $("#btn-giveaway").click(function() {
         localStorage.setItem("giveaway_duration", $("#price1-4").val() + "h")
         localStorage.setItem("giveaway_duration_total", $("#calc1-4").text())
 
-        localStorage.setItem("giveaway_total", $("#total-sum").text().split(" ")[1])
+        localStorage.setItem("giveaway_total", $("#total-sum").text().split(" ")[0])
         updateUI()
     }
 })
