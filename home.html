@@ -71,15 +71,15 @@
         </div>
         <div class="modal-body">
           <div id="items_table">
-            <a class="cart-close" onclick="ClearAll()"><i class="bx bx-trash"></i></a>
+            <a id="cart-close" class="cart-close"><i class="bx bx-trash"></i></a>
             <table id="list"></table>
           </div>
           <div>
             Where can we contact you?<br>
-            <button id="contact1" class="btn-contact active"><i class="bx bx-mail-send"></i></button>
-            <button id="contact2" class="btn-contact"><i class="bx bxl-telegram"></i></button>
-            <button id="contact3" class="btn-contact"><i class="bx bxl-twitter"></i></button>
-            <input id="contact-input" type="text" placeholder="Email">
+              <button id="contact1" class="btn-contact active"><i class="bx bx-mail-send"></i></button>
+              <button id="contact2" class="btn-contact"><i class="bx bxl-telegram"></i></button>
+              <button id="contact3" class="btn-contact"><i class="bx bxl-twitter"></i></button>
+              <input id="contact-input" type="text" placeholder="Email">
           </div>
         </div>
         <div class="modal-footer">
@@ -101,7 +101,7 @@
         </div>
 
         <div class="row icon-boxes">
-          <div class="col-12 d-flex align-items-stretch mb-5 mb-lg-4 text-center" data-aos="zoom-in" data-aos-delay="200">
+          <div class="col-lg-6 d-flex align-items-stretch mb-5 mb-lg-4 text-center" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-twitter"></i></div>
               <h4 class="title"><a href="">Twitter</a></h4>
@@ -109,7 +109,13 @@
             </div>
           </div>
   
-          
+          <div class="col-lg-6 d-flex align-items-stretch mb-5 mb-lg-4 text-center" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-question-mark"></i></div>
+              <h4 class="title"><a href="">More coming soon</a></h4>
+              <p class="description">We are aiming to expand our business to other social media!</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -230,7 +236,7 @@
         <div class="form-container">
           <div class="opt-box">
             <button id="btn-p" class="opt opt-left active">I want to apply for a position.</button>
-            <button id="btn-q" class="opt opt-right">I have a question.</button>
+            <button id="btn-q" class="opt opt-right">I have a general question.</button>
           </div>
   
           <div id="form-p" class="form row">

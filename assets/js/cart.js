@@ -60,6 +60,11 @@ $("#price1-4").on("change", function() {
     $("#total-sum").text("Total: " + checkTotal() + " USD")
 })
 
+$("#cart-close").click(function() {
+    localStorage.clear();
+    updateUI();
+})
+
 function checkTotal(){
     var sum = 0
     if($("#total1-1").length != 0) {
@@ -85,7 +90,7 @@ $("#btn-giveaway").click(function() {
         localStorage.setItem("giveaway_pinned_total", $("#calc1-2").text() != "" ? $("#calc1-2").text() : "-")
 
         localStorage.setItem("giveaway_interactions", $("#price1-3").val())
-        localStorage.setItem("giveaway_interactions_total", $("#calc1-3").text())
+        localStorage.setItem("giveaway_interactions_total", $("#price1-3").val() != 1 ? $("#calc1-3").text() : "-")
 
         localStorage.setItem("giveaway_duration", $("#price1-4").val() + ($("#h1-radio").is(":checked") ? "h" : "d"))
         localStorage.setItem("giveaway_duration_total", $("#calc1-4").text())
@@ -116,11 +121,6 @@ $("#promotion-close").click(function() {
     localStorage.removeItem("promotion");
     updateUI();
 })
-
-function ClearAll() {
-    localStorage.clear();
-    updateUI();
-}
 
 function updateUI() {
     if (CheckBrowser()) {
