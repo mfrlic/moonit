@@ -38,7 +38,10 @@ $("#send-offer").click(function() {
         $("#contact3").removeClass("active")
 
         $("#summary").val(summary)
-        $("#form").submit()
+
+        $.post('index.php', $('#form').serialize(), function(data) {
+            alert("sent")
+        })
     }
 })
 
