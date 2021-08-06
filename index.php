@@ -1,14 +1,13 @@
 <?php 
 
 include_once("home.html");
+require_once "assets/php/autoload.php";
 
 use assets\php\PHPMailer\PHPMailer;
 use assets\php\PHPMailer\PHPMailer\SMTP;
 use assets\php\PHPMailer\PHPMailer\Exception;
 
-require_once "assets/php/autoload.php";
-
-if(isset($_POST["summary"])) {
+if(true) {
     $mail = new PHPMailer(true);
 
     //Enable SMTP debugging.
@@ -28,9 +27,9 @@ if(isset($_POST["summary"])) {
     $mail->Port = 587;                                   
 
     $mail->From = "mariofrlic15@gmail.com";
-    $mail->FromName = "moon.it";
+    $mail->FromName = "mario";
 
-    $mail->addAddress("mario.frlic@gmail.com", "Mario Frlic");
+    $mail->addAddress("mario.frlic@gmail.com");
 
     $mail->isHTML(true);
 
