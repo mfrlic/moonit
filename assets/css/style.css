@@ -521,7 +521,7 @@ section {
 }
 
 #cart #contact-input {
-  width: 60%;
+  width: 62%;
   margin-left: 20px;
   background-color: var(--transparent);
   border-radius: 12px;
@@ -531,6 +531,12 @@ section {
   height: 44px;
   padding: 8px 20px;
   outline: 0;
+}
+
+@media (max-width: 991px) {
+  #cart #contact-input {
+    width: 50%;
+  }
 }
 
 #cart table {
