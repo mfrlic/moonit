@@ -1,13 +1,15 @@
 <?php 
 
+// include_once("home.html");
 require_once "assets/php/autoload.php";
 
-use assets\php\PHPMailer\PHPMailer;
-use assets\php\PHPMailer\PHPMailer\SMTP;
-use assets\php\PHPMailer\PHPMailer\Exception;
+require("./assets/php/phpmailer/phpmailer/src/PHPMailer.php");
+require("./assets/php/phpmailer/phpmailer/src/SMTP.php");
+require("./assets/php/phpmailer/phpmailer/src/Exception.php");
 
-if(true) {
-    $mail = new PHPMailer(true);
+
+if(isset($_POST["summary"])) {
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
 
     //Enable SMTP debugging.
     $mail->SMTPDebug = 3;                               
@@ -32,9 +34,9 @@ if(true) {
 
     $mail->isHTML(true);
 
-    $mail->Subject = "Subject Text";
-    $mail->Body = "<i>Mail body in HTML</i>";
-    $mail->AltBody = "This is the plain text version of the email content";
+    $mail->Subject = "A new message";
+    $mail->Body = $_POST["summary"];
+    $mail->AltBody = $_POST["summary"];
 
     try {
         $mail->send();
