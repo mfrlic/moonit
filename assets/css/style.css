@@ -256,11 +256,12 @@ a:hover {
 
 #home .btn-get-started {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   letter-spacing: 0.5px;
   display: inline-block;
   padding: 14px 50px;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: 0.5s;
   margin-top: 30px;
   color: var(--button-text);
@@ -334,7 +335,7 @@ section {
   background-image: linear-gradient(to bottom right, var(--primary-light), var(--secondary-dark));
   box-shadow: 0 0 29px 0 rgba(18, 66, 101, 0.08);
   transition: all 0.3s ease-in-out;
-  border-radius: 8px;
+  border-radius: 10px;
   z-index: 1;
   width:100%;
 }
@@ -482,9 +483,10 @@ section {
 #cart .cart-checkout {
   background: var(--button);
   color: var(--button-text);
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 600;
   padding: 5px 14px;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -526,7 +528,7 @@ section {
   position: absolute;
   margin-left: 20px;
   background-color: var(--transparent);
-  border-radius: 12px;
+  border-radius: 10px;
   border: 0;
   color: var(--text);
   font-size: 18px;
@@ -607,7 +609,7 @@ section {
 .pricing .promo {
   text-align: center;
   background-image: linear-gradient(to bottom right, var(--primary-light), var(--secondary-dark));
-  border-radius: 25px;
+  border-radius: 20px;
   padding: 25px 0px;
 }
 
@@ -641,7 +643,7 @@ section {
   color: var(--text);
   text-align: center;
   padding: 30px 50px;
-  border-radius: 25px;
+  border-radius: 20px;
   transition: 0.3s;
 }
 
@@ -819,7 +821,7 @@ section {
 
 .contact .input {
   background-color: var(--transparent);
-  border-radius: 12px;
+  border-radius: 10px;
   border: 0;
   box-sizing: border-box;
   color: var(--text);

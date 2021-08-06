@@ -100,7 +100,7 @@ $("#btn-giveaway").click(function() {
     }
 })
 
-$("#giveaway-close").click(function() {
+$(document).on("click", "#giveaway-close", function() {
     localStorage.removeItem("giveaway");
     localStorage.removeItem("giveaway_pinned");
     localStorage.removeItem("giveaway_pinned_total");
@@ -117,7 +117,7 @@ $("#btn-promotion").click(function() {
     updateUI();
 })
 
-$("#promotion-close").click(function() {
+$(document).on("click", "#promotion-close", function() {
     localStorage.removeItem("promotion");
     updateUI();
 })
