@@ -29,7 +29,7 @@ $("#send-offer").click(function() {
         if(localStorage.getItem("promotion")) {
             summary += 
             "<h4>Promotion</h4>" 
-            + "Promotion total: <i>" + localStorage.getItem("promotion") + " USD</i><br>" 
+            + "Promotion total: <i>" + localStorage.getItem("promotion") + " USD</i><br><br>" 
 
             summary_raw += 
             "Promotion\n" 
@@ -39,7 +39,7 @@ $("#send-offer").click(function() {
         }
 
         summary += 
-        "<h5>Total: <b>" + price + "USD</b></h5>"
+        "Total: <b>" + price + "USD</b>"
         + $("#contact1").is(":checked") ? "Email: <i>" + $("#contact-input").val() + "</i>" : ($("#contact2").is(":checked") ? "Telegram: <i>" + $("#contact-input").val() + "</i>" : "Twitter: <i>" + $("#contact-input").val() + "</i>")
 
         summary_raw += 
