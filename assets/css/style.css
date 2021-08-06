@@ -649,9 +649,14 @@ section {
 }
 
 .pricing .promo .subtitle {
-  margin: 0px 50px;
-  color: var(--subtext);
+  padding: 0px 50px;
+  color: gray;
   font-size: 18px;
+}
+
+.pricing .promo .description {
+  color: gray; 
+  text-decoration: italic;
 }
 
 .pricing .card-body {
