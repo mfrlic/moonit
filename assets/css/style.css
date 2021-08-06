@@ -521,8 +521,7 @@ section {
 }
 
 #cart #contact-input {
-  margin-top: -4px;
-  width: 62%;
+  width: 60%;
   margin-left: 20px;
   background-color: var(--transparent);
   border-radius: 12px;
