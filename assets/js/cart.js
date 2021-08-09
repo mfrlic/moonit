@@ -151,7 +151,7 @@ $(document).on("click", "#giveaway-close", function() {
 })
 
 $("#btn-promotion").click(function() {
-    localStorage.setItem("promotion", 35);
+    localStorage.setItem("promotion", 40);
     updateUI();
 })
 
