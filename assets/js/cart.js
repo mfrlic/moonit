@@ -115,6 +115,14 @@ function updateTotal(){
         sum = BigNumber(sum).plus($("#total1-4").text())
     }
     $("#total-sum").text(sum + " USD")
+
+    if($("#y2-radio").is(":checked")) {
+        $("#total-sum-promo").text("50 USD")
+    }
+    else {
+        $("#total-sum-promo").text("40 USD")
+    }
+
 }
 
 $("#btn-giveaway").click(function() {
@@ -138,6 +146,45 @@ $("#btn-giveaway").click(function() {
     }
 })
 
+
+$("#y2").click(function() {
+    if(!$("#y2").hasClass("active")) {
+        $("#y2-radio").prop("checked", true)
+
+        $("#y2").addClass("active")
+        $("#n2").removeClass("active")
+
+        $("#calc2-1").html("+<span id='total2-1'>10</span> USD")
+
+        if(localStorage.getItem("promotion") && localStorage.getItem("promotion_pinned") != "Yes") {
+            $("#btn-promotion").html('<i class="bx bxs-cart-download"></i> Update cart')
+        }
+        else if(localStorage.getItem("promotion")) {
+            $("#btn-promotion").html('<i class="bx bx-check"></i> Added to cart')
+        }
+    }
+    updateTotal()
+})
+
+$("#n2").click(function() {
+    if(!$("#n2").hasClass("active")) {
+        $("#n2-radio").prop("checked", true)
+
+        $("#n2").addClass("active")
+        $("#y2").removeClass("active")
+
+        $("#calc2-1").html("")
+
+        if(localStorage.getItem("promotion") && localStorage.getItem("promotion_pinned") != "No") {
+            $("#btn-promotion").html('<i class="bx bxs-cart-download"></i> Update cart')
+        }
+        else if(localStorage.getItem("promotion")) {
+            $("#btn-promotion").html('<i class="bx bx-check"></i> Added to cart')
+        }
+    }
+    updateTotal()
+})
+
 $(document).on("click", "#giveaway-close", function() {
     localStorage.removeItem("giveaway");
     localStorage.removeItem("giveaway_pinned");
@@ -152,11 +199,19 @@ $(document).on("click", "#giveaway-close", function() {
 
 $("#btn-promotion").click(function() {
     localStorage.setItem("promotion", 40);
+    localStorage.setItem("promotion_pinned", $("#y2-radio").is(":checked") ? "Yes" : "No")
+    localStorage.setItem("promotion_pinned_total", $("#calc2-1").text() != "" ? $("#calc2-1").text() : "-")
+    localStorage.setItem("promotion_total", $("#total-sum-promo").text().split(" ")[0])
+
     updateUI();
 })
 
 $(document).on("click", "#promotion-close", function() {
     localStorage.removeItem("promotion");
+    localStorage.removeItem("promotion_pinned");
+    localStorage.removeItem("promotion_pinned_total");
+    localStorage.removeItem("promotion_total");
+
     updateUI();
 })
 
@@ -208,16 +263,31 @@ function updateUI() {
     }
 
     if(localStorage.getItem("promotion")) {
-        $("#btn-promotion").html('<i class="bx bx-check"></i> Added to cart')
+        checkButton()
 
         list += 
-        "<tr class='cart-promotion'><td>Promotion</td>" 
+        "<tr class='cart-main'><td>Promotion</td>" 
         + "<td></td>" 
-        + "<td>" + localStorage.getItem("promotion") + " USD</td>" 
+        + "<td></td>" 
         + "<td><span class='cart-close-single' id='promotion-close'><i class='bx bx-x'></i></span></td></tr>"
 
+        + "<tr class='cart-details'><td>Base fee</td>"
+        + "<td>$" + localStorage.getItem("promotion") + "</td>" 
+        + "<td>+" + localStorage.getItem("promotion") + " USD"
+        + "<td></td></tr>"
+
+        + "<tr class='cart-details'><td>Pinned</td>"
+        + "<td>" + localStorage.getItem("promotion_pinned") + "</td>" 
+        + "<td>" + localStorage.getItem("promotion_pinned_total") + "</td>"
+        + "<td></td></tr>"
+
+        + "<tr class='cart-total'><td>Total</td>" 
+        + "<td></td>"
+        + "<td>" + localStorage.getItem("promotion_total") + " USD</td>" 
+        + "<td></td></tr>";
+
         total += 1;
-        price = BigNumber(price).plus(localStorage.getItem("promotion"))
+        price = BigNumber(price).plus(localStorage.getItem("promotion_total"))
     }
     else {
         $("#btn-promotion").html('<i class="bx bxs-cart-add"></i> Add to cart')
@@ -269,5 +339,12 @@ function checkButton() {
     }
     else if(localStorage.getItem("giveaway")) {
         $("#btn-giveaway").html('<i class="bx bx-check"></i> Added to cart')
+    }
+
+    if($("#y2-radio").is(":checked") && localStorage.getItem("promotion_pinned") != "Yes" || $("#n2-radio").is(":checked") && localStorage.getItem("promotion_pinned") != "No") {
+        $("#btn-promotion").html('<i class="bx bxs-cart-download"></i> Update cart')
+    }
+    else if(localStorage.getItem("promotion")) {
+        $("#btn-promotion").html('<i class="bx bx-check"></i> Added to cart')
     }
 }

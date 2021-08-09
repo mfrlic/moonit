@@ -28,13 +28,17 @@ $("#send-offer").click(function() {
         if(localStorage.getItem("promotion")) {
             summary += 
             "<h4>Promotion</h4>" 
-            + "Promotion total: <i>" + localStorage.getItem("promotion") + " USD</i><br><br>" 
+            + "Base fee: <i>" + localStorage.getItem("promotion") + " USD (+" + localStorage.getItem("promotion") + " USD)</i><br>" 
+            + "Pinned: <i>" + localStorage.getItem("promotion_pinned") + " (" + localStorage.getItem("promotion_pinned_total") + ")</i><br>" 
+            + "Promotion total: <i>" + localStorage.getItem("promotion_total") + " USD</i><br><br>" 
 
             summary_raw += 
             "Promotion\n" 
-            + "Promotion total: " + localStorage.getItem("promotion") + " USD\n\n" 
+            + "Base fee: " + localStorage.getItem("promotion") + " USD (+" + localStorage.getItem("promotion") + " USD)\n" 
+            + "Pinned: " + localStorage.getItem("promotion_pinned") + " (" + localStorage.getItem("promotion_pinned_total") + ")\n" 
+            + "Promotion total: " + localStorage.getItem("promotion_total") + " USD\n\n" 
 
-            price = BigNumber(price).plus(localStorage.getItem("promotion"))
+            price = BigNumber(price).plus(localStorage.getItem("promotion_total"))
         }
 
         summary += "<br><h2>Total: " + price + " USD</h2>"
