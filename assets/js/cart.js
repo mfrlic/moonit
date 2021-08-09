@@ -334,17 +334,21 @@ function CheckBrowser() {
 }
 
 function checkButton() {
-    if(localStorage.getItem("giveaway") != $("#price1-1").val() || localStorage.getItem("giveaway_interactions") != $("#price1-3").val() || localStorage.getItem("giveaway_duration") != $("#price1-4").val() + "h" || $("#y1-radio").is(":checked") && localStorage.getItem("giveaway_pinned") != "Yes" || $("#n1-radio").is(":checked") && localStorage.getItem("giveaway_pinned") != "No") {
-        $("#btn-giveaway").html('<i class="bx bxs-cart-download"></i> Update cart')
-    }
-    else if(localStorage.getItem("giveaway")) {
-        $("#btn-giveaway").html('<i class="bx bx-check"></i> Added to cart')
+    if(localStorage.getItem("giveaway")) {
+        if(localStorage.getItem("giveaway") != $("#price1-1").val() || localStorage.getItem("giveaway_interactions") != $("#price1-3").val() || localStorage.getItem("giveaway_duration") != $("#price1-4").val() + "h" || $("#y1-radio").is(":checked") && localStorage.getItem("giveaway_pinned") != "Yes" || $("#n1-radio").is(":checked") && localStorage.getItem("giveaway_pinned") != "No") {
+            $("#btn-giveaway").html('<i class="bx bxs-cart-download"></i> Update cart')
+        }
+        else {
+            $("#btn-giveaway").html('<i class="bx bx-check"></i> Added to cart')
+        }
     }
 
-    if($("#y2-radio").is(":checked") && localStorage.getItem("promotion_pinned") != "Yes" || $("#n2-radio").is(":checked") && localStorage.getItem("promotion_pinned") != "No") {
-        $("#btn-promotion").html('<i class="bx bxs-cart-download"></i> Update cart')
-    }
-    else if(localStorage.getItem("promotion")) {
-        $("#btn-promotion").html('<i class="bx bx-check"></i> Added to cart')
+    if(localStorage.getItem("promotion")) {
+        if($("#y2-radio").is(":checked") && localStorage.getItem("promotion_pinned") != "Yes" || $("#n2-radio").is(":checked") && localStorage.getItem("promotion_pinned") != "No") {
+            $("#btn-promotion").html('<i class="bx bxs-cart-download"></i> Update cart')
+        }
+        else {
+            $("#btn-promotion").html('<i class="bx bx-check"></i> Added to cart')
+        }
     }
 }
